@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>::Calculadora::</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="calculadora.css">
+	<script src="http://momentjs.com/downloads/moment.min.js"></script>
+</head>
+	<body>
+
+		<div class="container">
+			<form class="row calculator">
+				<div class="module">
+					<div class="form-group col-xs-12 col-sm-4">
+						<label>Tipo de servicio:</label>
+						<!--<select class="form-control outline" >
+						</select>-->
+							<select class="form-control outline" id="service-type-tmk"></select>
+							
+					</div>
+
+					<div class="form-group col-xs-12 col-sm-4">
+						<label>Numero de personas a Llamar:</label>
+						<input type="text" class="form-control outline" id="persons-to-call" placeholder="#1.000" value="300"/>
+					</div>
+
+					<div class="form-group col-xs-12 col-sm-4">
+						<label>Duración de llamada (minutos):</label>
+						<input type="text" class="form-control outline" id="duration-call" placeholder="15.min" value="15:00"/>
+					</div>
+
+					<div class="form-group col-xs-12 col-sm-6">
+						<label>Inicio del servicio:</label>
+						<input type="date" class="form-control outline" id="start-date"/>
+					</div>
+
+					<div class="form-group col-xs-12 col-sm-6">
+						<label>Final del servicio:</label>
+						<input type="date" class="form-control outline" id="end-date"/>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 summary summary-hours">
+						<div class="item-circle" id="days-inside-range"> 0 </div>
+							<h5><b>Días</b> dentro del Rango. </h5>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 summary summary-hours">
+						<div class="item-circle" id="weeks-inside-range"> 0 </div>
+							<h5><b>Semanas</b> Dentro Del Rango. </h5>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+
+		<div class="module">
+		
+			<div class="form-group col-xs-12 col-sm-6">
+				<label>Zona Horaria:</label>
+					<select class="form-control outline" id="time-zone-tmk" data-live-search="true"></select>
+			</div>
+
+			<div class="form-group col-xs-12 col-sm-6">
+				<label>Jornada laboral:</label> 
+					<select class="form-control outline" id="journal-time-tmk"> 	
+					</select>
+			</div>
+
+			<!--<div class="checkbox col-xs-12">
+			    <label>
+			    	<input type="checkbox" data-show="customer-journal">  <span>Crear una jornada personalizada. </span>
+			    </label>
+			</div>-->
+
+			<div class="clear"></div>
+			
+
+			<!--jornadas Personalizadas--> 
+				<div class="form-group customs-chedule col-xs-12 col-sm-6">
+					<label>Inicio de Jornada:</label>
+					<div class="inline-form">
+						<div class="box-icon">
+							<i class="far fa-clock"></i>
+						</div>
+						<input type="tel" class="form-control" placeholder="Horas" class="col-xs-5"/>
+						<input type="tel" class="form-control" placeholder="Minutos" class="col-xs-5"/>
+						<div class="time-cycles night">
+							<i class="fas fa-moon"></i>
+							<span>PM</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group customs-chedule col-xs-12 col-sm-6">
+					<label>Fin de Jornada:</label>
+					<div class="inline-form">
+						<div class="box-icon">
+							<i class="far fa-clock"></i>
+						</div>
+						<input type="tel" class="form-control" placeholder="Horas" class="col-xs-5"/>
+						<input type="tel" class="form-control" placeholder="Minutos" class="col-xs-5"/>
+						<div class="time-cycles day">
+							<i class="fas fa-cloud"></i>
+							<span>AM</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 summary summary-hours">
+					<div class="item-circle"> 8 </div>
+						<h5><b>Horas</b> de Gestión Diarias. </h5>
+				</div>
+
+<!--FIN jornadas Personalizadas-->
+			<div class="clear"></div>
+		</div>
+
+	<div class="module">
+		<div class="form-group col-xs-12">
+			<label> Días de actividad: </label>
+				<ul class="listDays">
+					<li class="day active">
+						<span class="icon">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="title">Lunes</span>
+					</li>
+
+					<li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Martes</span>
+					</li>
+
+					<li class="day active">
+						<span class="icon">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="title">Miercoles</span>
+					</li>
+
+					 <li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Jueves</span>
+					</li>
+
+					 <li class="day active">
+						<span class="icon">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="title">Viernes</span>
+					</li>
+
+					<li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Sábado</span>
+					</li>
+
+					<li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Domingo</span>
+					 </li>
+				</ul>
+			</div>
+
+			<div class="col-xs-12 col-sm-4 summary">
+				<div class="item-circle" id="math-days-gestion"> 3 </div>
+					<h5><b>Días</b> de gestión por semana. </h5>
+			</div>
+			
+			<div class="col-xs-12 col-sm-4 summary">
+				<div class="item-circle"> 8 </div>
+				<h5><b>Días Totales</b> para la Gestión. </h5>
+			</div>
+
+			<div class="col-xs-12 col-sm-4 summary">
+				<div class="item-circle small-font" id="total-hours-work"> 0 </div>
+					<h5><b>Horas</b> para realizar la gestión. </h5>
+			</div>
+					<div class="clear"></div>
+		</div>
+
+
+		<div class="module" id="added-services">
+
+				<div class="form-group added-services-item col-xs-12 col-sm-4" id="bag-comition">
+						<label>
+							<input type="checkbox" data-show="bag-comition" class="activate-modules bag-comition">
+							<span>Bolsa de Comisión</span>
+						</label>
+						<input type="text" class="form-control outline" id="input-bag-comition" placeholder="$100.0000" disabled/>
+						<!--<p style="font-size:12px;margin-top:5px;font-weight:200;color:#999999;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt<span>...</span> </p>-->
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-4 added-services-item active" id="grabations">
+						<label class="flex">
+							<input type="checkbox" checked data-show="grabations" class="activate-modules" id="check-grabations">
+							<span>Grabaciones</span>
+							<b>$3.257</b>
+						</label>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt<span>...</span> </p>
+				</div>
+
+				<div class="form-group col-xs-12 col-sm-4 added-services-item" id="audition">
+						<label class="flex">
+							<input type="checkbox" data-show="audition" class="activate-modules" id="check-auditoria">
+							<span>Auditoria</span>
+							 <b>$27.900</b>
+						</label>
+						<!--<input type="text" class="form-control outline" id="" placeholder="$100.0000"/>-->
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt<span>...</span> </p>
+				</div>
+
+			<!--
+			<footer class="form-group col-xs-12" style="display: flex; justify-content: flex-end;border-top:1px solid #cdd;padding-top:10px;">
+				<label>Servicios de valor agregado</label>
+			</footer>
+			-->
+
+			<div class="clear"></div>
+		</div>
+
+			</form>
+		</div>
+
+	</body>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+ 	<script type="text/javascript" src="calculadora.js"></script>
+	<script type="text/javascript" src="moment-recur.js"></script>
+
+</html>

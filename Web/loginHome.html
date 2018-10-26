@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ServOn - Perfil</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/clientes/bootstrapServOn.css?10">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/cssOmoldsMigracion.css?16">
+    <link rel="stylesheet" href="assets/css/calculadora.css">
+<link rel="shortcut icon" href="https://omolds.github.io/assets/images/sitom/servon/favicon.png?2">
+</head>
+
+<body style="font-size: 0.9em;font-family: Montserrat, sans-serif;">
+    <div class="container-fluid p-0 m-0 fixed-top bg-white" id="headerOm">
+        <div class="row p-0 m-0">
+            <div class="col-lg-11 p-0 m-0 bg-white p-2"><a href="index.html"><img class="img-fluid mx-auto d-block" src="https://omolds.github.io/assets/images/sitom/servon/logoServon.png" style="height:85px;"></a></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light shadow">
+                    <div class="container-fluid"><button class="navbar-toggler mx-auto text-primary" data-toggle="collapse" data-target="#navcol-2"><a href="#"><i class="fa fa-bars"></i></a><span class="sr-only">Toggle navigation</span></button>
+                        <div class="collapse navbar-collapse"
+                            id="navcol-2">
+                            <ul class="nav navbar-nav mr-auto">
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">&nbsp; <strong>Inicio</strong> &nbsp;</a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="cotizadorTmk.html">&nbsp; <i class="fa fa-calculator"></i><strong>&nbsp;TMK &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="cotizadorInfra.html">&nbsp; <i class="fa fa-calculator"></i><strong>&nbsp;Infraestructura &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="tecnologia.html"><strong>&nbsp; Tecnología &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="formularioContacto.html"><strong>&nbsp; Contacto &nbsp;</strong></a></li>
+                            </ul>
+                            <ul class="nav navbar-nav d-none ml-auto" id="login">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="formulario.html" data-toggle="modal" data-target="#modalCrearCuenta">
+                                        <p class="p-0 m-0"><i class="fa fa-key"></i>&nbsp;Registro<br></p>
+                                    </a>
+                                </li>
+                                <li class="nav-item border-left" role="presentation">
+                                    <a class="nav-link" href="formulario.html" data-toggle="modal" data-target="#modalLogin">
+                                        <p class="p-0 m-0"><i class="fa fa-user-circle-o"></i>&nbsp;Login<br></p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav ml-auto" id="Usuario_registrado">
+                                <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle font-weight-bold" data-toggle="dropdown" aria-expanded="false" href="#"><strong>Bienvenido Cliente Default</strong></a>
+                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="loginHome.html">Administrador<p>de campañas</p></a><a class="dropdown-item d-flex justify-content-between align-items-center" role="presentation" href="#">Cerrar<i class="fa fa-close"></i></a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row p-0 m-0 d-none" id="totalFlotanteOm">
+            <div class="col p-0 m-0 bg-success">
+                <h3 class="text-center text-white p-0 m-0 p-3">TOTAL:&nbsp;$100.000.000 COP<br></h3>
+            </div>
+        </div>
+    </div>
+    <section id="adminUsuariOm" class="mt-5 pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="row bg-success">
+                        <div class="col-xl-12 mt-5 pt-5">
+                            <h3 class="text-uppercase text-center text-white p-0 m-0" style="font-weight:bold;">BIENVENIDO, cliente default</h3>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xl-12">
+                            <h5 class="text-muted mt-2 mb-3">Conozca todo acerca de sus servicios</h5>
+                        </div>
+                        <div class="col-md-6 col-xl-6">
+                            <h6 class="text-muted m-0 p-0">Número de cuenta:</h6>
+                            <h3 class="text-primary font-weight-bold p-0 m-0">123456789</h3>
+                        </div>
+                        <div class="col-md-6 col-xl-6">
+                            <h6 class="text-muted m-0 p-0">Saldo de cuenta:</h6>
+                            <h3 class="text-primary font-weight-bold p-0 m-0">$200.000.000</h3>
+                        </div>
+                        <div class="col-xl-12 mt-2 mb-2"><button class="btn btn-primary" type="button">Ver Historial</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 pt-2 pb-2">
+                            <div><a class="btn btn-dark text-white mx-auto d-block" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" role="button" href="#collapse-1">CONFIGURAR CAMPAÑA DE $LANZAMIENTOS&nbsp;<i class="fa fa-plus-circle"></i></a>
+                                <div
+                                    class="collapse bg-light" id="collapse-1">
+                                    <div class="row p-0 m-0 mt-3 pt-2 pb-2 bg-light" style="border: 1px solid rgba(188,188,189,0.67);">
+                                        <div class="col">
+                                            <form>
+                                                <div class="form-row pt-3 pb-3">
+                                                    <div class="col-xl-12">
+                                                        <h4 class="text-primary font-weight-bold">$Nombre campaña de $lanzamientos</h4>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group pt-3"><label>Escriba el nombre de su campaña:&nbsp;</label><input class="form-control outline bg-light" type="text" placeholder="Ej: Lanzamiento producto"></div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-row pt-3 pb-3">
+                                                    <div class="col-xl-12">
+                                                        <h4 class="text-primary font-weight-bold">Carga de base de datos</h4>
+                                                    </div>
+                                                    <div class="col-xl-8 align-self-center"><label class="col-form-label text-muted">Elija la base de datos que quiere cargar sobre el sistema y luego haga clic en procesar. <br></label></div>
+                                                    <div class="col-xl-4 align-self-center"><a class="btn btn-primary" role="button" href="https://omolds.github.io/assets/images/sitom/servon/documentos/EjemplosBD.xlsx">Descargar plantilla ejemplo</a></div>
+                                                    <div class="col-xl-12 align-self-center pt-3 pb-3">
+                                                        <div class="form-group"><input type="file" required=""></div>
+                                                        <div class="form-check"><input class="form-check-input" type="checkbox" required="" id="formCheck-1"><label class="form-check-label" for="formCheck-1"><small>Declaro y acepto que la base de datos adjunta, cumple los términos y políticas de Habeas data</small></label></div>
+                                                    </div>
+                                                    <div class="col"><button class="btn btn-primary btn-block" type="button">PROCESAR</button></div>
+                                                </div>
+                                                <hr>
+                                                <div class="form-row pt-3 pb-3">
+                                                    <div class="col-xl-12">
+                                                        <h4 class="text-primary font-weight-bold">Guión llamada</h4>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group pt-3">
+                                                            <p class="text-muted p-0 m-0">Cree su guión o <a href="https://omolds.github.io/assets/images/sitom/servon/documentos/EjemploGuiones.docx" class="text-primary">descargue el ejemplo:</a></p><textarea class="form-control w-100"
+                                                                rows="4"></textarea></div>
+                                                    </div>
+                                                </div><button class="btn btn-warning btn-block font-weight-bold" type="button">ACTIVAR CAMPAÑA</button></form>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section id="campanasActivOm">
+        <div class="container-fluid bg-primary p-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-5 col-xl-4">
+                                <h3 class="text-center text-white">CAMPAÑAS VIGENTES</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="row justify-content-center p-0 m-0 pb-4">
+                        <div class="col-12 col-lg-9 col-xl-11 p-0 m-0 text-secondary border mt-3 mb-3">
+                            <div class="row p-0 m-0 bg-light">
+                                <div class="col p-0 m-0">
+                                    <h3 class="text-center text-white bg-primary p-0 m-0 p-3">CAMPAÑA MATRIMONIO</h3>
+                                    <p class="text-center text-white bg-success p-0 m-0 p-2 bg-secondary" style="font-weight:300;">ESTADO: ACTIVA<br></p>
+                                    <p class="text-center text-white bg-dark p-0 m-0 p-2 bg-secondary font-weight-bold">Registros por contactar: 3.500<br></p>
+                                </div>
+                                <div class="col-12 p-0 m-0 p-3 mx-auto">
+                                    <div class="row" style="font-size: 0.8em;">
+                                        <div class="col-xl-12">
+                                            <h4 class="text-black-50"><strong>Descripción:</strong></h4>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Tipo de servicio:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Número de personas a llamar</p>
+                                            <h5 class="m-0 p-0">$5.000</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Duración de la llamada:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Inicio del servicio:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                            <p class="m-0 p-0">Final del servicio:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Zona horaría:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                            <p class="m-0 p-0">Jornada laboral:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Días de actividad:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Bolsa de comisión:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Grabación:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Calidad:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <form>
+                                        <div class="form-group"><button class="btn btn-danger btn-block" type="button">Desactivar</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 col-xl-11 p-0 m-0 text-secondary border mt-3 mb-3">
+                            <div class="row p-0 m-0 bg-light">
+                                <div class="col p-0 m-0">
+                                    <h3 class="text-center text-white bg-primary p-0 m-0 p-3">CAMPAÑA MATRIMONIO</h3>
+                                    <p class="text-center text-white bg-danger p-0 m-0 p-2 bg-secondary" style="font-weight:300;">ESTADO: INACTIVA<br></p>
+                                    <p class="text-center text-white bg-danger p-0 m-0 p-2 bg-secondary font-weight-bold">Registros por contactar: 1.500<br></p>
+                                </div>
+                                <div class="col-12 p-0 m-0 p-3 mx-auto">
+                                    <div class="row" style="font-size: 0.8em;">
+                                        <div class="col-xl-12">
+                                            <h4 class="text-black-50"><strong>Descripción:</strong></h4>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Tipo de servicio:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Número de personas a llamar</p>
+                                            <h5 class="m-0 p-0">$5.000</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Duración de la llamada:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Inicio del servicio:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                            <p class="m-0 p-0">Final del servicio:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Zona horaría:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                            <p class="m-0 p-0">Jornada laboral:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Días de actividad:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Bolsa de comisión:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Grabación:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Calidad:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <form>
+                                        <div class="form-group"><button class="btn btn-success btn-block" type="button">Activar</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 col-xl-11 p-0 m-0 text-secondary border mt-3 mb-3">
+                            <div class="row p-0 m-0 bg-light">
+                                <div class="col p-0 m-0">
+                                    <h3 class="text-center text-white bg-secondary p-0 m-0 p-3">CAMPAÑA MATRIMONIO</h3>
+                                    <p class="text-center text-white bg-secondary p-0 m-0 p-2 bg-secondary" style="font-weight:300;">ESTADO: FINALIZADA<br></p>
+                                    <p class="text-center text-white bg-secondary p-0 m-0 p-2 bg-secondary font-weight-bold">Registros por contactar: 0<br></p>
+                                </div>
+                                <div class="col-12 p-0 m-0 p-3 mx-auto">
+                                    <div class="row" style="font-size: 0.8em;">
+                                        <div class="col-xl-12">
+                                            <h4 class="text-black-50"><strong>Descripción:</strong></h4>
+                                        </div>
+                                        <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Tipo de servicio:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Número de personas a llamar</p>
+                                            <h5 class="m-0 p-0">$5.000</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Duración de la llamada:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Inicio del servicio:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                            <p class="m-0 p-0">Final del servicio:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Zona horaría:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                            <p class="m-0 p-0">Jornada laboral:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Días de actividad:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Bolsa de comisión:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Grabación:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Calidad:</p>
+                                            <h5 class="m-0 p-0">$Variable</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <form>
+                                        <div class="form-group"><button class="btn btn-success btn-block" type="button" disabled="disabled">Activar</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="infraestructurOm" class="p-0 m-0">
+        <div class="container-fluid bg-primary p-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-5 col-xl-6">
+                                <h3 class="text-center text-white">INFRAESTRUCTURAS &nbsp;ALQUILADAS</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="row justify-content-center p-0 m-0 pb-4">
+                        <div class="col-12 col-lg-9 col-xl-11 p-0 m-0 text-secondary border mt-3 mb-3">
+                            <div class="row p-0 m-0 bg-light">
+                                <div class="col p-0 m-0">
+                                    <h3 class="text-center text-white bg-primary p-0 m-0 p-3">SEDE BRM CDO</h3>
+                                    <p class="text-center text-white bg-success p-0 m-0 p-2 bg-secondary" style="font-weight:300;">ESTADO: EN USO<br></p>
+                                    <p class="text-center text-white bg-dark p-0 m-0 p-2 bg-secondary font-weight-bold">FECHA DE FINALIZACIÓN: 24 DE NOVIEMBRE DE 2018<br></p>
+                                </div>
+                                <div class="col-12 p-0 m-0 p-3 mx-auto">
+                                    <div class="row" style="font-size: 0.8em;">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Periodo de tiempo:</p>
+                                            <h5 class="m-0 p-0">$1 Mes&nbsp;</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Fecha de inicio:</p>
+                                            <h5 class="m-0 p-0">$ 25 de octubre de 2018</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Fecha de cierre:</p>
+                                            <h5 class="m-0 p-0">$ 24 de noviembre de 2018</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Puestos de trabajo:</p>
+                                            <h5 class="m-0 p-0">($2) $Dos puestos tipo TMK Telemercaderista</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Equipo de computo:</p>
+                                            <h5 class="m-0 p-0 mb-3">$CPU CORE I3 2G DE 3.1 GHZ Monitor 17</h5>
+                                            <p class="m-0 p-0">Licencia:</p>
+                                            <h5 class="m-0 p-0">$Office Estandar</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Tipo de diadema:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Diadema monoaural con anulación de ruido</h5>
+                                            <p class="m-0 p-0">Licencia de marcadores:</p>
+                                            <h5 class="m-0 p-0">$Posición blended incluye LIC. Scripter + Grabación + &nbsp;Softphone</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-11">
+                    <div class="row justify-content-center p-0 m-0 pb-4">
+                        <div class="col-12 col-lg-9 col-xl-11 p-0 m-0 text-secondary border mt-3 mb-3">
+                            <div class="row p-0 m-0 bg-light">
+                                <div class="col p-0 m-0">
+                                    <h3 class="text-center text-white bg-secondary p-0 m-0 p-3">SEDE BRM CDO</h3>
+                                    <p class="text-center text-white bg-secondary p-0 m-0 p-2 bg-secondary" style="font-weight:300;">ESTADO: FINALIZADO<br></p>
+                                    <p class="text-center text-white bg-secondary p-0 m-0 p-2 bg-secondary font-weight-bold">FECHA DE FINALIZACIÓN: 24 DE AGOSTO DE 2018<br></p>
+                                </div>
+                                <div class="col-12 p-0 m-0 p-3 mx-auto">
+                                    <div class="row" style="font-size: 0.8em;">
+                                        <div class="col-md-12 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Periodo de tiempo:</p>
+                                            <h5 class="m-0 p-0">$1 Mes&nbsp;</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Fecha de inicio:</p>
+                                            <h5 class="m-0 p-0">$ 25 de julio de 2018</h5>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Fecha de cierre:</p>
+                                            <h5 class="m-0 p-0">$ 24 de agosto de 2018</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Puestos de trabajo:</p>
+                                            <h5 class="m-0 p-0">($2) $Dos puestos tipo TMK Telemercaderista</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Equipo de computo:</p>
+                                            <h5 class="m-0 p-0 mb-3">$CPU CORE I3 2G DE 3.1 GHZ Monitor 17</h5>
+                                            <p class="m-0 p-0">Licencia:</p>
+                                            <h5 class="m-0 p-0">$Office Estandar</h5>
+                                        </div>
+                                        <div class="col-lg-4 col-xl-4 mb-4">
+                                            <p class="m-0 p-0">Tipo de diadema:</p>
+                                            <h5 class="m-0 p-0 mb-3">$Diadema monoaural con anulación de ruido</h5>
+                                            <p class="m-0 p-0">Licencia de marcadores:</p>
+                                            <h5 class="m-0 p-0">$Posición blended incluye LIC. Scripter + Grabación + &nbsp;Softphone</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid p-0 m-0" id="footerOm">
+        <footer class="page-footer bg-dark p-0 m-0">
+            <div class="row p-0 m-0 p-3 bg-light">
+                <div class="col p-0 m-0">
+                    <p class="p-0 m-0 text-secondary" style="font-weight:300;">Todos los derechos reservados por BRM S.A.</p>
+                    <a href="politicas.html">
+                        <p class="p-0 m-0"><small>Políticas de privacidad</small></p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="Modales">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modalLogin">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-primary"><i class="fa fa-edit"></i>&nbsp;ZONA DE ACCESO</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12 padMar">
+                                <p class="text-secondary p-0 m-0 p-2">Para acceder a nuestros productos debes estar inscrito en nuestro sitio web.</p>
+                            </div>
+                            <div class="col">
+                                <form method="post" class="p-4">
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Correo electrónico"></div>
+                                    <div class="form-group"><input class="form-control outline" type="password" name="password" placeholder="Contraseña"></div>
+                                    <div class="form-group"><a class="btn btn-primary btn-block" role="button" href="loginHome.html">ENVIAR</a></div>
+                                    <div class="form-check pb-2"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label text-left" for="formCheck-1">Recordarme</label></div><a href="#">¿Olvidaste tu contraseña?</a></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modalCrearCuenta">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-primary"><i class="fa fa-edit"></i>&nbsp;CREAR CUENTA</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12 padMar">
+                                <p class="text-secondary p-0 m-0 p-2">Diligencia los datos para la creación de cuenta y acceder a los servicios de Servon.</p>
+                            </div>
+                            <div class="col">
+                                <form method="post" class="p-4">
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Nombres"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Apellidos"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Cédula"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Celular"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Correo electrónico"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Crear contraseña"></div>
+                                    <div class="form-group"><input class="form-control outline" type="password" name="password" placeholder="Repetir contraseña"></div>
+                                    <div class="form-group"><a class="btn btn-primary btn-block text-white" role="button" href="loginHome.html">&nbsp;CREAR CUENTA</a></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://omolds.github.io/assets/js/jquery.easing.min.js"></script>
+    <script src="https://omolds.github.io/assets/js/scrolling-nav.js"></script>
+    <script src="https://omolds.github.io/assets/js/functionsOmolds.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1972 @@
+<?php 
+    /*cargamos los css*/
+    $CssModulo = '
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/clientes/bootstrapServOn.css?8">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/cssOmoldsMigracion.css?16">
+
+    ';
+?>
+
+    <div class="d-none">
+        <div class="row p-0 m-0">
+            <div class="col-12 p-0 m-0 bg-dark">
+                <p id="miPropioID" class="text-center text-primary p-0 m-0 p-2"><small>SIEMPRE PREPARADOS PARA RECIBIR LLAMADAS</small><a href="#"><i class="fa fa-window-close pull-right btnOcultar" style="margin-left:0;font-size:23px;"></i></a></p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="modalLogin">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-primary"><i class="fa fa-edit"></i> ZONA DE ACCESO</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col padMar">
+                            <p class="text-secondary p-0 m-0 p-2">Para acceder a nuestros productos debes estar inscrito en nuestro sitio web.</p>
+                        </div>
+                    </div>
+
+                    <form id="login-form" method="post" action="/login/valida" class="p-4">
+                        <div class="form-group"><input class="form-control" type="email" name="login" placeholder="Correo electrónico" required="required"></div>
+                        <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Contraseña" required="required"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" role="button"  type="submit">ENVIAR</button></div>
+                        <div class="form-check pb-2"><input class="form-check-input" type="checkbox" id="formCheck-1">
+                            <label class="form-check-label text-left" for="formCheck-1"><input name="remember_me" class="form-check-input" type="checkbox">  Recordarme</label>
+                        </div>
+                        <a href="#" data-toggle="modal" data-target="#modalRecordarClave">¿Olvidaste tu contraseña?</a>
+                        <a href="#" data-toggle="modal" data-target="#modalCrearCuenta"><br>Si no tienes cuenta creala aquí</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" role="dialog" tabindex="-1" id="modalRecordarClave">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-primary"><i class="fa fa-edit"></i> ZONA DE ACCESO</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col padMar">
+                            <p class="text-secondary p-0 m-0 p-2">El sistema validará y enviará un correo electrónico a la cuenta registrada para generar una nueva contraseña.</p>
+                        </div>
+                    </div>
+
+                    <form id="login-form-clave" method="post" action="https://servon.com.co/login/recuperaClaveEmail" class="p-4" target="resRecupera">
+                        <div class="form-group"><input class="form-control" type="email" name="emailClave" placeholder="Correo electrónico" required="required"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" role="button"  type="submit">ENVIAR</button></div>
+                        <div class="form-group"><iframe name="resRecupera" src="https://servon.com.co/login/recuperaClaveEmail" style="height: 90px; max-width: 100%; width: 100%;" frameborder="0"></iframe></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" role="dialog" tabindex="-1" id="modalCrearCuenta">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-primary"><i class="fa fa-edit"></i> CREAR CUENTA</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col padMar">
+                            <p class="text-secondary p-0 m-0 p-2">Diligencia los datos para la creación de cuenta y acceder a los servicios de Servon.</p>
+                        </div>
+                    </div>
+
+
+                    <form class="contact-form form p-4" id="formularioRegisto" accept-charset="UTF-8" action="/web/UserCreate" method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="user_om_firstName" name="user_om[firstName]" required placeholder="Nombres">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="user_om_lastName" name="user_om[lastName]" required placeholder="Apellidos">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="user_om_identificationDocument" required name="user_om[identificationDocument]" placeholder="Cédula">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="text" id="user_om_phone" name="user_om[phone]" required placeholder="Celular">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="email" id="user_om_email" name="user_om[email]" required placeholder="Correo electrónico">
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="password" id="user_om_password" name="user_om[password]" required placeholder="Crear contraseña" >
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" type="password" id="user_om_password2" required placeholder="Repetir contraseña">
+                        </div>
+
+                        <input name="mail_profile" type="hidden" value="4"> 
+                        <input name="user_om[active]" type="hidden" value="S"> 
+                        <input name="user_om[idFather]" type="hidden" value="1"> 
+                        <input name="user_om[Profile]" type="hidden" value="Clientes potenciales"> 
+                        <input name="user_om[area]" type="hidden" value="Publica">
+
+                        <div class="form-group"><button class="btn btn-primary btn-block text-white" role="button" id="btnSubmit0" type="submit"> CREAR CUENTA</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   
+    
+    <!--div class="container-fluid p-0 m-0" id="headerOm">
+        <div class="row p-0 m-0">
+            <div class="col p-0 m-0 bg-white p-2"><a href="<?=APP_PAGE_OMOLDS;?>web/index"><img class="img-fluid mx-auto d-block" src="https://omolds.github.io/assets/images/sitom/servon/logoServon.png" style="height:85px;"></a></div>
+        </div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light shadow">
+            <div class="container-fluid"><button class="navbar-toggler mx-auto text-primary" data-toggle="collapse" data-target="#navcol-2"><a href="#"><i class="fa fa-bars"></i></a><span class="sr-only">Toggle navigation</span></button>
+                <div class="collapse navbar-collapse" >
+                    <ul class="nav navbar-nav mr-auto" id="menu-header"></ul>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLogin">
+                                <i class="fa fa-user-circle-o"></i> Login
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div-->
+     <?= $header; ?>
+
+
+
+
+
+     <div class="container" id="contentOm" style="font-weight:300;">
+        <div class="row p-0 m-0">
+            <div class="col p-0 m-0 bg-success">
+                <h3 class="text-center text-white p-0 m-0 p-3" style="font-weight:bold;">¿CUANTOS TMK NECESITA?</h3>
+            </div>
+            <div class="col-12 p-0 m-0 p-4 mx-auto bg-info">
+                <p class="text-center text-white p-0 m-0" style="font-weight:300;">A través de este cotizador podrá realizar el cálculo con tipo de servicio que requiera según su necesidad. Para más información consulte el ícono de interrogación <i class="fa fa-question-circle text-primary"></i>.</p>
+            </div>
+        </div>
+        <section class="text-secondary">
+
+            <form id="form-tmk" method="post" action="https://www.servon.com.co/adm/TableRegisterCreate/25/false/true" class="contact-form form p-0 m-0" accept-charset="UTF-8" enctype="multipart/form-data" data-contform="0">
+
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalEjemplo" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body"><img class="img-fluid" src="https://www.servon.com.co/index/viewArchive/811/archivo_imagen">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row p-0 m-0 border">
+                    <div class="col-12 col-lg-4 col-xl-4 p-3 m-0">
+dddd
+                        <?php 
+                            if($_COOKIE['user_name']){
+                                $nameUser = $_COOKIE['user_name'];
+                            }else{
+                                $nameUser = "anonymous";
+                            } 
+                            ?>
+
+                        <div>  
+                            <input type="hidden" value="<?= $nameUser ?>" class="form-control " name="usuario[value]" required="">
+
+                            <input type="hidden" name="usuario[typeField]" value="logged_in_user">
+                            <input type="hidden" name="usuario[nameDbField]" value="usuario">
+                            <input type="hidden" name="usuario[orderField]" value="1">
+                            <input type="hidden" name="usuario[required]" value="yes">
+                        </div>
+
+
+
+                        <div>   
+                            <input type="hidden" value="automatic" readonly="readonly" class="form-control " name="consecutive_number[value]" id="consecutivo" required="">
+
+                            <input type="hidden" name="consecutive_number[typeField]" value="consecutive_number">
+                            <input type="hidden" name="consecutive_number[nameDbField]" value="consecutivo">
+                            <input type="hidden" name="consecutive_number[orderField]" value="100">
+                            <input type="hidden" name="consecutive_number[required]" value="yes">
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="text-primary"><strong>Tipo de servicio: </strong></label>
+                            <select title="Selected" class="form-control text-secondary" name="tipo_de_servicio[value]" required="" data-name="tipo_de_servicio" data-required="yes" tabindex="-98">
+
+                                <option class="bs-title-option" value=""></option>
+                                <option value="Actualización de datos">Actualización de datos</option>
+                                <option value="Confirmación de eventos">Confirmación de eventos</option>
+                                <option value="Fidelización">Fidelización</option>
+                                <option value="Informativas">Informativas</option>
+                                <option value="Lanzamientos">Lanzamientos</option>
+                                <option value="Ventas">Ventas</option>
+
+                            </select>
+                                <input type="hidden" name="tipo_de_servicio[typeField]" value="join_table">
+                                <input type="hidden" name="tipo_de_servicio[nameDbField]" value="tipo_de_servicio">
+                                <input type="hidden" name="tipo_de_servicio[orderField]" value="200">
+                                <input type="hidden" name="tipo_de_servicio[required]" value="yes">
+
+
+                        </div>
+
+
+
+
+                       
+
+
+                        <div class="form-group">
+                            <label class="text-primary"><strong>Tamaño de la Base de Datos: </strong>
+                            </label><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Aquí se define la cantidad de personas (registros) los cuales quiere contactar. Recuerde que mínimo son 20 registros y 10mm registros. Los registros su base de datos deben cumplir todas las políticas de Habeas Data."><i class="fa fa-question-circle text-primary text-right"></i></a>
+                            
+                            <input type="number" step="any" value="" class="form-control" placeholder="Ejemplo: 5.000" min="20" max="10000000"name="tamano_de_la_base_de_datos[value]" required="">
+
+
+                            <input type="hidden" name="tamano_de_la_base_de_datos[typeField]" value="number">
+                            <input type="hidden" name="tamano_de_la_base_de_datos[nameDbField]" value="tamano_de_la_base_de_datos">
+                            <input type="hidden" name="tamano_de_la_base_de_datos[orderField]" value="300">
+                            <input type="hidden" name="tamano_de_la_base_de_datos[required]" value="yes">
+                        </div>
+                    
+
+
+
+
+                        <div class="form-group">
+                            <label class="text-primary"><strong>Tiempo de la llamada: </strong></label><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tenga en cuenta que el promedio de cualquier llamada tiene asociados tiempos estandar como saludo, manejo de objeciones, cierre comercial etc. El  rango de tiempo puede ir de 5 mins a 1 hora."><i class="fa fa-question-circle text-primary text-right"></i></a>                      
+                            <input type="number" step="any" value="" class="form-control mb-2" name="tiempo_de_la_llamada[value]" required="">
+
+                            <a class="text-dark mt-2" target="_blank" data-toggle="modal" data-target="#modalEjemplo"><strong>Ver ejemplo</strong></a>
+
+
+                            <input type="hidden" name="tiempo_de_la_llamada[typeField]" value="number">
+                            <input type="hidden" name="tiempo_de_la_llamada[nameDbField]" value="tiempo_de_la_llamada">
+                            <input type="hidden" name="tiempo_de_la_llamada[orderField]" value="400">
+                            <input type="hidden" name="tiempo_de_la_llamada[required]" value="yes">
+
+
+                        </div>
+                </div>
+
+
+
+
+
+
+
+                
+                <div class="col-lg-4 col-xl-4 p-0 m-0 p-3">
+
+
+
+
+                    <div class="form-group">
+                        <label class="text-primary"><strong>Fecha inicial del servicio: </strong></label>
+                        <input type="date" value="" class="form-control text-secondary" name="fecha_inicial_del_servicio[value]" required="">
+
+                        <input type="hidden" name="fecha_inicial_del_servicio[typeField]" value="date">
+                        <input type="hidden" name="fecha_inicial_del_servicio[nameDbField]" value="fecha_inicial_del_servicio">
+                        <input type="hidden" name="fecha_inicial_del_servicio[orderField]" value="500">
+                        <input type="hidden" name="fecha_inicial_del_servicio[required]" value="yes">
+                    </div>
+
+
+
+
+
+
+
+
+                    
+                    <div class="form-group">
+                        <label class="text-primary"><strong>Fecha final del servicio: </strong></label>
+                        <input type="date" value="" class="form-control text-secondary" name="fecha_final_del_servicio[value]" required="">
+
+                        <input type="hidden" name="fecha_final_del_servicio[typeField]" value="date">
+                        <input type="hidden" name="fecha_final_del_servicio[nameDbField]" value="fecha_final_del_servicio">
+                        <input type="hidden" name="fecha_final_del_servicio[orderField]" value="600">
+                        <input type="hidden" name="fecha_final_del_servicio[required]" value="yes">
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        <label class="text-primary"><strong>Inicio de la jornada: </strong></label>
+                        <input type="time" value="" class="form-control text-secondary" name="inicio_de_la_jornada[value]" required="">
+                        <input type="hidden" name="inicio_de_la_jornada[typeField]" value="hour">
+                        <input type="hidden" name="inicio_de_la_jornada[nameDbField]" value="inicio_de_la_jornada">
+                        <input type="hidden" name="inicio_de_la_jornada[orderField]" value="700">
+                        <input type="hidden" name="inicio_de_la_jornada[required]" value="yes">
+                        </select>
+                    </div>
+
+
+
+
+
+                    <div class="form-group">
+                        <label class="text-primary"><strong>Fin de la jornada: </strong></label>
+                        <input type="time" value="" class="form-control text-secondary" name="fin_de_la_jornada[value]" required="">
+
+
+                        <input type="hidden" name="fin_de_la_jornada[typeField]" value="hour">
+                        <input type="hidden" name="fin_de_la_jornada[nameDbField]" value="fin_de_la_jornada">
+                        <input type="hidden" name="fin_de_la_jornada[orderField]" value="800">
+                        <input type="hidden" name="fin_de_la_jornada[required]" value="yes">
+                        </div>
+                </div>
+
+
+
+
+
+
+
+
+
+    <div class="col-lg-4 col-xl-4 p-0 m-0 p-3">
+        <div class="form-group"><label class="text-primary"><strong>Zona horaria: </strong></label>
+
+             <select title="Selected" class="form-control text-secondary" name="zona_horaria_de_la_llamada[value]" required="" data-name="zona_horaria_de_la_llamada" data-required="yes" tabindex="-98">
+
+
+                <option value="GMT-5:00 - America/Bogota - COT - Hora de Colombia" selected>GMT-5:00 - America/Bogota - COT - Hora de Colombia</option>
+
+                <option value="GMT+00:00 - Africa/Abidjan - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Abidjan - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Accra - GMT - Hora media de Ghana">GMT+00:00 - Africa/Accra - GMT - Hora media de Ghana</option>
+
+                <option value="GMT+00:00 - Africa/Bamako - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Bamako - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Banjul - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Banjul - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Bissau - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Bissau - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Casablanca - WET - Hora de Europa occidental">GMT+00:00 - Africa/Casablanca - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Africa/Conakry - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Conakry - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Dakar - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Dakar - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/El_Aaiun - WET - Hora de Europa occidental">GMT+00:00 - Africa/El_Aaiun - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Africa/Freetown - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Freetown - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Lome - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Lome - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Monrovia - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Monrovia - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Nouakchott - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Nouakchott - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Ouagadougou - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Ouagadougou - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Sao_Tome - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Sao_Tome - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Africa/Timbuktu - GMT - Hora media de Greeenwich">GMT+00:00 - Africa/Timbuktu - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - America/Danmarkshavn - GMT - Hora media de Greeenwich">GMT+00:00 - America/Danmarkshavn - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Atlantic/Canary - WET - Hora de Europa occidental">GMT+00:00 - Atlantic/Canary - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Atlantic/Faeroe - WET - Hora de Europa occidental">GMT+00:00 - Atlantic/Faeroe - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Atlantic/Faroe - WET - Hora de Europa occidental">GMT+00:00 - Atlantic/Faroe - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Atlantic/Madeira - WET - Hora de Europa occidental">GMT+00:00 - Atlantic/Madeira - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Atlantic/Reykjavik - GMT - Hora media de Greeenwich">GMT+00:00 - Atlantic/Reykjavik - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Atlantic/St_Helena - GMT - Hora media de Greeenwich">GMT+00:00 - Atlantic/St_Helena - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Eire - GMT - Hora media de Greeenwich">GMT+00:00 - Eire - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Etc/GMT - - - GMT+00:00">GMT+00:00 - Etc/GMT - - - GMT+00:00</option>
+
+                <option value="GMT+00:00 - Etc/GMT+0 - - - GMT+00:00">GMT+00:00 - Etc/GMT+0 - - - GMT+00:00</option>
+
+                <option value="GMT+00:00 - Etc/GMT-0 - - - GMT+00:00">GMT+00:00 - Etc/GMT-0 - - - GMT+00:00</option>
+
+                <option value="GMT+00:00 - Etc/Greenwich - GMT - Hora media de Greeenwich">GMT+00:00 - Etc/Greenwich - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Etc/UCT - UTC - Hora Universal Coordinada">GMT+00:00 - Etc/UCT - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - Etc/UTC - UTC - Hora Universal Coordinada">GMT+00:00 - Etc/UTC - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - Etc/Universal - UTC - Hora Universal Coordinada">GMT+00:00 - Etc/Universal - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - Etc/Zulu - UTC - Hora Universal Coordinada">GMT+00:00 - Etc/Zulu - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - Europe/Belfast - GMT - Hora media de Greeenwich">GMT+00:00 - Europe/Belfast - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Europe/Dublin - GMT - Hora media de Greeenwich">GMT+00:00 - Europe/Dublin - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Europe/Guernsey - GMT - Hora media de Greeenwich">GMT+00:00 - Europe/Guernsey - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Europe/Isle_of_Man - GMT - Hora media de Greeenwich">GMT+00:00 - Europe/Isle_of_Man - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Europe/Jersey - GMT - Hora media de Greeenwich">GMT+00:00 - Europe/Jersey - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Europe/Lisbon - WET - Hora de Europa occidental">GMT+00:00 - Europe/Lisbon - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Europe/London - GMT - Hora media de Greeenwich">GMT+00:00 - Europe/London - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - GB - GMT - Hora media de Greeenwich">GMT+00:00 - GB - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - GB-Eire - GMT - Hora media de Greeenwich">GMT+00:00 - GB-Eire - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - GMT - GMT - Hora media de Greeenwich">GMT+00:00 - GMT - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - GMT0 - GMT - GMT+00:00">GMT+00:00 - GMT0 - GMT - GMT+00:00</option>
+
+                <option value="GMT+00:00 - Greenwich - GMT - Hora media de Greeenwich">GMT+00:00 - Greenwich - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Iceland - GMT - Hora media de Greeenwich">GMT+00:00 - Iceland - GMT - Hora media de Greeenwich</option>
+
+                <option value="GMT+00:00 - Portugal - WET - Hora de Europa occidental">GMT+00:00 - Portugal - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - UCT - UTC - Hora Universal Coordinada">GMT+00:00 - UCT - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - UTC - UTC - Hora Universal Coordinada">GMT+00:00 - UTC - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - Universal - UTC - Hora Universal Coordinada">GMT+00:00 - Universal - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+00:00 - WET - WET - Hora de Europa occidental">GMT+00:00 - WET - WET - Hora de Europa occidental</option>
+
+                <option value="GMT+00:00 - Zulu - UTC - Hora Universal Coordinada">GMT+00:00 - Zulu - UTC - Hora Universal Coordinada</option>
+
+                <option value="GMT+10:00 - AET - EST - Hora oficial del Este (Nueva Gales del Sur)">GMT+10:00 - AET - EST - Hora oficial del Este (Nueva Gales del Sur)</option>
+
+                <option value="GMT+10:00 - Antarctica/DumontDUrville - DDUT - Hora de Dumont-du0027Urville">GMT+10:00 - Antarctica/DumontDUrville - DDUT - Hora de Dumont-d\u0027Urville</option>
+
+                <option value="GMT+10:00 - Asia/Sakhalin - SAKT - Hora de Sakhalin">GMT+10:00 - Asia/Sakhalin - SAKT - Hora de Sakhalin</option>
+
+                <option value="GMT+10:00 - Asia/Vladivostok - VLAT - Hora de Vladivostok">GMT+10:00 - Asia/Vladivostok - VLAT - Hora de Vladivostok</option>
+
+                <option value="GMT+10:00 - Australia/ACT - EST - Hora oficial del Este (Nueva Gales del Sur)">GMT+10:00 - Australia/ACT - EST - Hora oficial del Este (Nueva Gales del Sur)</option>
+
+                <option value="GMT+10:00 - Australia/Brisbane - EST - Hora oficial oriental (Queensland)">GMT+10:00 - Australia/Brisbane - EST - Hora oficial oriental (Queensland)</option>
+
+                <option value="GMT+10:00 - Australia/Canberra - EST - Hora oficial del Este (Nueva Gales del Sur)">GMT+10:00 - Australia/Canberra - EST - Hora oficial del Este (Nueva Gales del Sur)</option>
+
+                <option value="GMT+10:00 - Australia/Currie - EST - Hora oficial del Este (Nueva Gales del Sur)">GMT+10:00 - Australia/Currie - EST - Hora oficial del Este (Nueva Gales del Sur)</option>
+
+                <option value="GMT+10:00 - Australia/Hobart - EST - Hora oficial oriental (Tasmania)">GMT+10:00 - Australia/Hobart - EST - Hora oficial oriental (Tasmania)</option>
+
+                <option value="GMT+10:00 - Australia/Lindeman - EST - Hora oficial oriental (Queensland)">GMT+10:00 - Australia/Lindeman - EST - Hora oficial oriental (Queensland)</option>
+
+                <option value="GMT+10:00 - Australia/Melbourne - EST - Hora oficial oriental (Victoria)">GMT+10:00 - Australia/Melbourne - EST - Hora oficial oriental (Victoria)</option>
+
+                <option value="GMT+10:00 - Australia/NSW - EST - Hora oficial del Este (Nueva Gales del Sur)">GMT+10:00 - Australia/NSW - EST - Hora oficial del Este (Nueva Gales del Sur)</option>
+
+                <option value="GMT+10:00 - Australia/Queensland - EST - Hora oficial oriental (Queensland)">GMT+10:00 - Australia/Queensland - EST - Hora oficial oriental (Queensland)</option>
+
+                <option value="GMT+10:00 - Australia/Sydney - EST - Hora oficial del Este (Nueva Gales del Sur)">GMT+10:00 - Australia/Sydney - EST - Hora oficial del Este (Nueva Gales del Sur)</option>
+
+                <option value="GMT+10:00 - Australia/Tasmania - EST - Hora oficial oriental (Tasmania)">GMT+10:00 - Australia/Tasmania - EST - Hora oficial oriental (Tasmania)</option>
+
+                <option value="GMT+10:00 - Australia/Victoria - EST - Hora oficial oriental (Victoria)">GMT+10:00 - Australia/Victoria - EST - Hora oficial oriental (Victoria)</option>
+
+                <option value="GMT+10:00 - Etc/GMT-10 - - - GMT+10:00">GMT+10:00 - Etc/GMT-10 - - - GMT+10:00</option>
+
+                <option value="GMT+10:00 - Pacific/Guam - ChST - Hora oficial de Chamorro">GMT+10:00 - Pacific/Guam - ChST - Hora oficial de Chamorro</option>
+
+                <option value="GMT+10:00 - Pacific/Port_Moresby - PGT - Hora de Papúa-Nueva Guinea">GMT+10:00 - Pacific/Port_Moresby - PGT - Hora de Papúa-Nueva Guinea</option>
+
+                <option value="GMT+10:00 - Pacific/Saipan - ChST - Hora oficial de Chamorro">GMT+10:00 - Pacific/Saipan - ChST - Hora oficial de Chamorro</option>
+
+                <option value="GMT+10:00 - Pacific/Truk - TRUT - Hora de Truk">GMT+10:00 - Pacific/Truk - TRUT - Hora de Truk</option>
+
+                <option value="GMT+10:00 - Pacific/Yap - TRUT - Hora de Truk">GMT+10:00 - Pacific/Yap - TRUT - Hora de Truk</option>
+
+                <option value="GMT+10:30 - Australia/LHI - LHST - Hora oficial de Lord Howe">GMT+10:30 - Australia/LHI - LHST - Hora oficial de Lord Howe</option>
+
+                <option value="GMT+10:30 - Australia/Lord_Howe - LHST - Hora oficial de Lord Howe">GMT+10:30 - Australia/Lord_Howe - LHST - Hora oficial de Lord Howe</option>
+
+                <option value="GMT+11:00 - Asia/Magadan - MAGT - Hora de Magadán">GMT+11:00 - Asia/Magadan - MAGT - Hora de Magadán</option>
+
+                <option value="GMT+11:00 - Etc/GMT-11 - - - GMT+11:00">GMT+11:00 - Etc/GMT-11 - - - GMT+11:00</option>
+
+                <option value="GMT+11:00 - Pacific/Efate - VUT - Hora de Vanuatu">GMT+11:00 - Pacific/Efate - VUT - Hora de Vanuatu</option>
+
+                <option value="GMT+11:00 - Pacific/Guadalcanal - SBT - Hora de las Islas Salomón">GMT+11:00 - Pacific/Guadalcanal - SBT - Hora de las Islas Salomón</option>
+
+                <option value="GMT+11:00 - Pacific/Kosrae - KOST - Hora de Kosrae">GMT+11:00 - Pacific/Kosrae - KOST - Hora de Kosrae</option>
+
+                <option value="GMT+11:00 - Pacific/Noumea - NCT - Hora de Nueva Caledonia">GMT+11:00 - Pacific/Noumea - NCT - Hora de Nueva Caledonia</option>
+
+                <option value="GMT+11:00 - Pacific/Ponape - PONT - Hora de Ponape">GMT+11:00 - Pacific/Ponape - PONT - Hora de Ponape</option>
+
+                <option value="GMT+11:00 - SST - SBT - Hora de las Islas Solomon">GMT+11:00 - SST - SBT - Hora de las Islas Solomon</option>
+
+                <option value="GMT+11:30 - Pacific/Norfolk - NFT - Hora de Norfolk">GMT+11:30 - Pacific/Norfolk - NFT - Hora de Norfolk</option>
+
+                <option value="GMT+12:00 - Antarctica/McMurdo - NZST - Hora oficial de Nueva Zelanda">GMT+12:00 - Antarctica/McMurdo - NZST - Hora oficial de Nueva Zelanda</option>
+
+                <option value="GMT+12:00 - Antarctica/South_Pole - NZST - Hora oficial de Nueva Zelanda">GMT+12:00 - Antarctica/South_Pole - NZST - Hora oficial de Nueva Zelanda</option>
+
+                <option value="GMT+12:00 - Asia/Anadyr - ANAT - Hora de Anadyr">GMT+12:00 - Asia/Anadyr - ANAT - Hora de Anadyr</option>
+
+                <option value="GMT+12:00 - Asia/Kamchatka - PETT - Hora de Petropavlovsk-Kamchatski">GMT+12:00 - Asia/Kamchatka - PETT - Hora de Petropavlovsk-Kamchatski</option>
+
+                <option value="GMT+12:00 - Etc/GMT-12 - - - GMT+12:00">GMT+12:00 - Etc/GMT-12 - - - GMT+12:00</option>
+
+                <option value="GMT+12:00 - Kwajalein - MHT - Hora de las Islas Marshall">GMT+12:00 - Kwajalein - MHT - Hora de las Islas Marshall</option>
+
+                <option value="GMT+12:00 - NST - NZST - Hora oficial de Nueva Zelanda">GMT+12:00 - NST - NZST - Hora oficial de Nueva Zelanda</option>
+
+                <option value="GMT+12:00 - NZ - NZST - Hora oficial de Nueva Zelanda">GMT+12:00 - NZ - NZST - Hora oficial de Nueva Zelanda</option>
+
+                <option value="GMT+12:00 - Pacific/Auckland - NZST - Hora oficial de Nueva Zelanda">GMT+12:00 - Pacific/Auckland - NZST - Hora oficial de Nueva Zelanda</option>
+
+                <option value="GMT+12:00 - Pacific/Fiji - FJT - Hora de Fiji">GMT+12:00 - Pacific/Fiji - FJT - Hora de Fiji</option>
+
+                <option value="GMT+12:00 - Pacific/Funafuti - TVT - Hora de Tuvalu">GMT+12:00 - Pacific/Funafuti - TVT - Hora de Tuvalu</option>
+
+                <option value="GMT+12:00 - Pacific/Kwajalein - MHT - Hora de las Islas Marshall">GMT+12:00 - Pacific/Kwajalein - MHT - Hora de las Islas Marshall</option>
+
+                <option value="GMT+12:00 - Pacific/Majuro - MHT - Hora de las Islas Marshall">GMT+12:00 - Pacific/Majuro - MHT - Hora de las Islas Marshall</option>
+
+                <option value="GMT+12:00 - Pacific/Nauru - NRT - Hora de Nauru">GMT+12:00 - Pacific/Nauru - NRT - Hora de Nauru</option>
+
+                <option value="GMT+12:00 - Pacific/Tarawa - GILT - Hora de las Islas Gilbert">GMT+12:00 - Pacific/Tarawa - GILT - Hora de las Islas Gilbert</option>
+
+                <option value="GMT+12:00 - Pacific/Wake - WAKT - Hora de Wake">GMT+12:00 - Pacific/Wake - WAKT - Hora de Wake</option>
+
+                <option value="GMT+12:00 - Pacific/Wallis - WFT - Hora de Wallis y Futuna">GMT+12:00 - Pacific/Wallis - WFT - Hora de Wallis y Futuna</option>
+
+                <option value="GMT+12:45 - NZ-CHAT - CHAST - Hora oficial de Chatham">GMT+12:45 - NZ-CHAT - CHAST - Hora oficial de Chatham</option>
+
+                <option value="GMT+12:45 - Pacific/Chatham - CHAST - Hora oficial de Chatham">GMT+12:45 - Pacific/Chatham - CHAST - Hora oficial de Chatham</option>
+
+                <option value="GMT+13:00 - Etc/GMT-13 - - - GMT+13:00">GMT+13:00 - Etc/GMT-13 - - - GMT+13:00</option>
+
+                <option value="GMT+13:00 - Pacific/Enderbury - PHOT - Hora de la Isla de Phoenix">GMT+13:00 - Pacific/Enderbury - PHOT - Hora de la Isla de Phoenix</option>
+
+                <option value="GMT+13:00 - Pacific/Tongatapu - TOT - Hora de Tonga">GMT+13:00 - Pacific/Tongatapu - TOT - Hora de Tonga</option>
+
+                <option value="GMT+14:00 - Etc/GMT-14 - - - GMT+14:00">GMT+14:00 - Etc/GMT-14 - - - GMT+14:00</option>
+
+                <option value="GMT+14:00 - Pacific/Kiritimati - LINT - Hora de las Islas Line">GMT+14:00 - Pacific/Kiritimati - LINT - Hora de las Islas Line</option>
+
+                <option value="GMT+1:00 - Africa/Algiers - CET - Hora de Europa central">GMT+1:00 - Africa/Algiers - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Africa/Bangui - WAT - Hora de África occidental">GMT+1:00 - Africa/Bangui - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Brazzaville - WAT - Hora de África occidental">GMT+1:00 - Africa/Brazzaville - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Ceuta - CET - Hora de Europa central">GMT+1:00 - Africa/Ceuta - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Africa/Douala - WAT - Hora de África occidental">GMT+1:00 - Africa/Douala - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Kinshasa - WAT - Hora de África occidental">GMT+1:00 - Africa/Kinshasa - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Lagos - WAT - Hora de África occidental">GMT+1:00 - Africa/Lagos - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Libreville - WAT - Hora de África occidental">GMT+1:00 - Africa/Libreville - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Luanda - WAT - Hora de África occidental">GMT+1:00 - Africa/Luanda - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Malabo - WAT - Hora de África occidental">GMT+1:00 - Africa/Malabo - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Ndjamena - WAT - Hora de África occidental">GMT+1:00 - Africa/Ndjamena - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Niamey - WAT - Hora de África occidental">GMT+1:00 - Africa/Niamey - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Porto-Novo - WAT - Hora de África occidental">GMT+1:00 - Africa/Porto-Novo - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Africa/Tunis - CET - Hora de Europa central">GMT+1:00 - Africa/Tunis - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Africa/Windhoek - WAT - Hora de África occidental">GMT+1:00 - Africa/Windhoek - WAT - Hora de África occidental</option>
+
+                <option value="GMT+1:00 - Arctic/Longyearbyen - CET - Hora de Europa central">GMT+1:00 - Arctic/Longyearbyen - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Atlantic/Jan_Mayen - CET - Hora de Europa central">GMT+1:00 - Atlantic/Jan_Mayen - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - CET - CET - Hora de Europa central">GMT+1:00 - CET - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - ECT - CET - Hora de Europa central">GMT+1:00 - ECT - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Etc/GMT-1 - - - GMT+01:00">GMT+1:00 - Etc/GMT-1 - - - GMT+01:00</option>
+
+                <option value="GMT+1:00 - Europe/Amsterdam - CET - Hora de Europa central">GMT+1:00 - Europe/Amsterdam - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Andorra - CET - Hora de Europa central">GMT+1:00 - Europe/Andorra - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Belgrade - CET - Hora de Europa central">GMT+1:00 - Europe/Belgrade - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Berlin - CET - Hora de Europa central">GMT+1:00 - Europe/Berlin - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Bratislava - CET - Hora de Europa central">GMT+1:00 - Europe/Bratislava - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Brussels - CET - Hora de Europa central">GMT+1:00 - Europe/Brussels - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Budapest - CET - Hora de Europa central">GMT+1:00 - Europe/Budapest - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Copenhagen - CET - Hora de Europa central">GMT+1:00 - Europe/Copenhagen - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Gibraltar - CET - Hora de Europa central">GMT+1:00 - Europe/Gibraltar - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Ljubljana - CET - Hora de Europa central">GMT+1:00 - Europe/Ljubljana - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Luxembourg - CET - Hora de Europa central">GMT+1:00 - Europe/Luxembourg - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Madrid - CET - Hora de Europa central">GMT+1:00 - Europe/Madrid - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Malta - CET - Hora de Europa central">GMT+1:00 - Europe/Malta - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Monaco - CET - Hora de Europa central">GMT+1:00 - Europe/Monaco - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Oslo - CET - Hora de Europa central">GMT+1:00 - Europe/Oslo - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Paris - CET - Hora de Europa central">GMT+1:00 - Europe/Paris - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Podgorica - CET - Hora de Europa central">GMT+1:00 - Europe/Podgorica - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Prague - CET - Hora de Europa central">GMT+1:00 - Europe/Prague - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Rome - CET - Hora de Europa central">GMT+1:00 - Europe/Rome - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/San_Marino - CET - Hora de Europa central">GMT+1:00 - Europe/San_Marino - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Sarajevo - CET - Hora de Europa central">GMT+1:00 - Europe/Sarajevo - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Skopje - CET - Hora de Europa central">GMT+1:00 - Europe/Skopje - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Stockholm - CET - Hora de Europa central">GMT+1:00 - Europe/Stockholm - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Tirane - CET - Hora de Europa central">GMT+1:00 - Europe/Tirane - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Vaduz - CET - Hora de Europa central">GMT+1:00 - Europe/Vaduz - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Vatican - CET - Hora de Europa central">GMT+1:00 - Europe/Vatican - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Vienna - CET - Hora de Europa central">GMT+1:00 - Europe/Vienna - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Warsaw - CET - Hora de Europa central">GMT+1:00 - Europe/Warsaw - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Zagreb - CET - Hora de Europa central">GMT+1:00 - Europe/Zagreb - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - Europe/Zurich - CET - Hora de Europa central">GMT+1:00 - Europe/Zurich - CET - Hora de Europa central</option>
+
+                <option value="GMT+1:00 - MET - MET - Hora de Europa Central">GMT+1:00 - MET - MET - Hora de Europa Central</option>
+
+                <option value="GMT+1:00 - Poland - CET - Hora de Europa central">GMT+1:00 - Poland - CET - Hora de Europa central</option>
+
+                <option value="GMT+2:00 - ART - EET - Hora de Europa oriental">GMT+2:00 - ART - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Africa/Blantyre - CAT - Hora de África central">GMT+2:00 - Africa/Blantyre - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Bujumbura - CAT - Hora de África central">GMT+2:00 - Africa/Bujumbura - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Cairo - EET - Hora de Europa oriental">GMT+2:00 - Africa/Cairo - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Africa/Gaborone - CAT - Hora de África central">GMT+2:00 - Africa/Gaborone - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Harare - CAT - Hora de África central">GMT+2:00 - Africa/Harare - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Johannesburg - SAST - Hora oficial de Sudáfrica">GMT+2:00 - Africa/Johannesburg - SAST - Hora oficial de Sudáfrica</option>
+
+                <option value="GMT+2:00 - Africa/Kigali - CAT - Hora de África central">GMT+2:00 - Africa/Kigali - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Lubumbashi - CAT - Hora de África central">GMT+2:00 - Africa/Lubumbashi - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Lusaka - CAT - Hora de África central">GMT+2:00 - Africa/Lusaka - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Maputo - CAT - Hora de África central">GMT+2:00 - Africa/Maputo - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - Africa/Maseru - SAST - Hora oficial de Sudáfrica">GMT+2:00 - Africa/Maseru - SAST - Hora oficial de Sudáfrica</option>
+
+                <option value="GMT+2:00 - Africa/Mbabane - SAST - Hora oficial de Sudáfrica">GMT+2:00 - Africa/Mbabane - SAST - Hora oficial de Sudáfrica</option>
+
+                <option value="GMT+2:00 - Africa/Tripoli - EET - Hora de Europa oriental">GMT+2:00 - Africa/Tripoli - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Amman - EET - Hora de Europa oriental">GMT+2:00 - Asia/Amman - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Beirut - EET - Hora de Europa oriental">GMT+2:00 - Asia/Beirut - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Damascus - EET - Hora de Europa oriental">GMT+2:00 - Asia/Damascus - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Gaza - EET - Hora de Europa oriental">GMT+2:00 - Asia/Gaza - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Istanbul - EET - Hora de Europa oriental">GMT+2:00 - Asia/Istanbul - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Jerusalem - IST - Hora oficial de Israel">GMT+2:00 - Asia/Jerusalem - IST - Hora oficial de Israel</option>
+
+                <option value="GMT+2:00 - Asia/Nicosia - EET - Hora de Europa oriental">GMT+2:00 - Asia/Nicosia - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Asia/Tel_Aviv - IST - Hora oficial de Israel">GMT+2:00 - Asia/Tel_Aviv - IST - Hora oficial de Israel</option>
+
+                <option value="GMT+2:00 - CAT - CAT - Hora de África central">GMT+2:00 - CAT - CAT - Hora de África central</option>
+
+                <option value="GMT+2:00 - EET - EET - Hora de Europa oriental">GMT+2:00 - EET - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Egypt - EET - Hora de Europa oriental">GMT+2:00 - Egypt - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Etc/GMT-2 - - - GMT+02:00">GMT+2:00 - Etc/GMT-2 - - - GMT+02:00</option>
+
+                <option value="GMT+2:00 - Europe/Athens - EET - Hora de Europa oriental">GMT+2:00 - Europe/Athens - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Bucharest - EET - Hora de Europa oriental">GMT+2:00 - Europe/Bucharest - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Chisinau - EET - Hora de Europa oriental">GMT+2:00 - Europe/Chisinau - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Helsinki - EET - Hora de Europa oriental">GMT+2:00 - Europe/Helsinki - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Istanbul - EET - Hora de Europa oriental">GMT+2:00 - Europe/Istanbul - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Kaliningrad - EET - Hora de Europa oriental">GMT+2:00 - Europe/Kaliningrad - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Kiev - EET - Hora de Europa oriental">GMT+2:00 - Europe/Kiev - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Mariehamn - EET - Hora de Europa oriental">GMT+2:00 - Europe/Mariehamn - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Minsk - EET - Hora de Europa oriental">GMT+2:00 - Europe/Minsk - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Nicosia - EET - Hora de Europa oriental">GMT+2:00 - Europe/Nicosia - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Riga - EET - Hora de Europa oriental">GMT+2:00 - Europe/Riga - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Simferopol - EET - Hora de Europa oriental">GMT+2:00 - Europe/Simferopol - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Sofia - EET - Hora de Europa oriental">GMT+2:00 - Europe/Sofia - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Tallinn - EET - Hora de Europa oriental">GMT+2:00 - Europe/Tallinn - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Tiraspol - EET - Hora de Europa oriental">GMT+2:00 - Europe/Tiraspol - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Uzhgorod - EET - Hora de Europa oriental">GMT+2:00 - Europe/Uzhgorod - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Vilnius - EET - Hora de Europa oriental">GMT+2:00 - Europe/Vilnius - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Europe/Zaporozhye - EET - Hora de Europa oriental">GMT+2:00 - Europe/Zaporozhye - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Israel - IST - Hora oficial de Israel">GMT+2:00 - Israel - IST - Hora oficial de Israel</option>
+
+                <option value="GMT+2:00 - Libya - EET - Hora de Europa oriental">GMT+2:00 - Libya - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+2:00 - Turkey - EET - Hora de Europa oriental">GMT+2:00 - Turkey - EET - Hora de Europa oriental</option>
+
+                <option value="GMT+3:00 - Africa/Addis_Ababa - EAT - Hora de África oriental">GMT+3:00 - Africa/Addis_Ababa - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Asmara - EAT - Hora de África oriental">GMT+3:00 - Africa/Asmara - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Asmera - EAT - Hora de África oriental">GMT+3:00 - Africa/Asmera - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Dar_es_Salaam - EAT - Hora de África oriental">GMT+3:00 - Africa/Dar_es_Salaam - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Djibouti - EAT - Hora de África oriental">GMT+3:00 - Africa/Djibouti - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Kampala - EAT - Hora de África oriental">GMT+3:00 - Africa/Kampala - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Khartoum - EAT - Hora de África oriental">GMT+3:00 - Africa/Khartoum - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Mogadishu - EAT - Hora de África oriental">GMT+3:00 - Africa/Mogadishu - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Africa/Nairobi - EAT - Hora de África oriental">GMT+3:00 - Africa/Nairobi - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Antarctica/Syowa - SYOT - Hora de Syowa">GMT+3:00 - Antarctica/Syowa - SYOT - Hora de Syowa</option>
+
+                <option value="GMT+3:00 - Asia/Aden - AST - Hora oficial de Arabia">GMT+3:00 - Asia/Aden - AST - Hora oficial de Arabia</option>
+
+                <option value="GMT+3:00 - Asia/Baghdad - AST - Hora oficial de Arabia">GMT+3:00 - Asia/Baghdad - AST - Hora oficial de Arabia</option>
+
+                <option value="GMT+3:00 - Asia/Bahrain - AST - Hora oficial de Arabia">GMT+3:00 - Asia/Bahrain - AST - Hora oficial de Arabia</option>
+
+                <option value="GMT+3:00 - Asia/Kuwait - AST - Hora oficial de Arabia">GMT+3:00 - Asia/Kuwait - AST - Hora oficial de Arabia</option>
+
+                <option value="GMT+3:00 - Asia/Qatar - AST - Hora oficial de Arabia">GMT+3:00 - Asia/Qatar - AST - Hora oficial de Arabia</option>
+
+                <option value="GMT+3:00 - Asia/Riyadh - AST - Hora oficial de Arabia">GMT+3:00 - Asia/Riyadh - AST - Hora oficial de Arabia</option>
+
+                <option value="GMT+3:00 - EAT - EAT - Hora de África oriental">GMT+3:00 - EAT - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Etc/GMT-3 - - - GMT+03:00">GMT+3:00 - Etc/GMT-3 - - - GMT+03:00</option>
+
+                <option value="GMT+3:00 - Europa/Volgogrado - VOLT - Hora de Volgogrado">GMT+3:00 - Europa/Volgogrado - VOLT - Hora de Volgogrado</option>
+
+                <option value="GMT+3:00 - Europe/Moscow - MSK - Hora oficial de Moscú">GMT+3:00 - Europe/Moscow - MSK - Hora oficial de Moscú</option>
+
+                <option value="GMT+3:00 - Indian/Antananarivo - EAT - Hora de África oriental">GMT+3:00 - Indian/Antananarivo - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Indian/Comoro - EAT - Hora de África oriental">GMT+3:00 - Indian/Comoro - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - Indian/Mayotte - EAT - Hora de África oriental">GMT+3:00 - Indian/Mayotte - EAT - Hora de África oriental</option>
+
+                <option value="GMT+3:00 - W-SU - MSK - Hora oficial de Moscú">GMT+3:00 - W-SU - MSK - Hora oficial de Moscú</option>
+
+                <option value="GMT+3:07 - Asia/Riyadh87 - - - GMT+3:07">GMT+3:07 - Asia/Riyadh87 - - - GMT+3:07</option>
+
+                <option value="GMT+3:07 - Asia/Riyadh88 - - - GMT+3:07">GMT+3:07 - Asia/Riyadh88 - - - GMT+3:07</option>
+
+                <option value="GMT+3:07 - Asia/Riyadh89 - - - GMT+3:07">GMT+3:07 - Asia/Riyadh89 - - - GMT+3:07</option>
+
+                <option value="GMT+3:07 - Mideast/Riyadh87 - - - GMT+3:07">GMT+3:07 - Mideast/Riyadh87 - - - GMT+3:07</option>
+
+                <option value="GMT+3:07 - Mideast/Riyadh88 - - - GMT+3:07">GMT+3:07 - Mideast/Riyadh88 - - - GMT+3:07</option>
+
+                <option value="GMT+3:07 - Mideast/Riyadh89 - - - GMT+3:07">GMT+3:07 - Mideast/Riyadh89 - - - GMT+3:07</option>
+
+                <option value="GMT+3:30 - Asia/Tehran - IRST - Hora oficial de Irán">GMT+3:30 - Asia/Tehran - IRST - Hora oficial de Irán</option>
+
+                <option value="GMT+3:30 - Iran - IRST - Hora oficial de Irán">GMT+3:30 - Iran - IRST - Hora oficial de Irán</option>
+
+                <option value="GMT+4:00 - Asia/Baku - AZT - Hora de Azerbaiyán">GMT+4:00 - Asia/Baku - AZT - Hora de Azerbaiyán</option>
+
+                <option value="GMT+4:00 - Asia/Dubai - GST - Hora oficial del Golfo">GMT+4:00 - Asia/Dubai - GST - Hora oficial del Golfo</option>
+
+                <option value="GMT+4:00 - Asia/Muscat - GST - Hora oficial del Golfo">GMT+4:00 - Asia/Muscat - GST - Hora oficial del Golfo</option>
+
+                <option value="GMT+4:00 - Asia/Tbilisi - GET - Hora de Georgia">GMT+4:00 - Asia/Tbilisi - GET - Hora de Georgia</option>
+
+                <option value="GMT+4:00 - Asia/Yerevan - AMT - Hora de Armenia">GMT+4:00 - Asia/Yerevan - AMT - Hora de Armenia</option>
+
+                <option value="GMT+4:00 - Etc/GMT-4 - - - GMT+04:00">GMT+4:00 - Etc/GMT-4 - - - GMT+04:00</option>
+
+                <option value="GMT+4:00 - Europe/Samara - SAMT - Hora de Samara">GMT+4:00 - Europe/Samara - SAMT - Hora de Samara</option>
+
+                <option value="GMT+4:00 - Indian/Mahe - SCT - Hora de Seychelles">GMT+4:00 - Indian/Mahe - SCT - Hora de Seychelles</option>
+
+                <option value="GMT+4:00 - Indian/Mauritius - MUT - Hora de Mauricio">GMT+4:00 - Indian/Mauritius - MUT - Hora de Mauricio</option>
+
+                <option value="GMT+4:00 - Indian/Reunion - RET - Hora de Reunión">GMT+4:00 - Indian/Reunion - RET - Hora de Reunión</option>
+
+                <option value="GMT+4:00 - NET - AMT - Hora de Armenia">GMT+4:00 - NET - AMT - Hora de Armenia</option>
+
+                <option value="GMT+4:30 - Asia/Kabul - AFT - Hora de Afganistán">GMT+4:30 - Asia/Kabul - AFT - Hora de Afganistán</option>
+
+                <option value="GMT+5:00 - Asia/Aqtau - AQTT - Hora de Aqtau">GMT+5:00 - Asia/Aqtau - AQTT - Hora de Aqtau</option>
+
+                <option value="GMT+5:00 - Asia/Aqtobe - AQTT - Hora de Aqtobe">GMT+5:00 - Asia/Aqtobe - AQTT - Hora de Aqtobe</option>
+
+                <option value="GMT+5:00 - Asia/Ashgabat - TMT - Hora de Turkmenistán">GMT+5:00 - Asia/Ashgabat - TMT - Hora de Turkmenistán</option>
+
+                <option value="GMT+5:00 - Asia/Ashkhabad - TMT - Hora de Turkmenistán">GMT+5:00 - Asia/Ashkhabad - TMT - Hora de Turkmenistán</option>
+
+                <option value="GMT+5:00 - Asia/Dushanbe - TJT - Hora de Tajikistán">GMT+5:00 - Asia/Dushanbe - TJT - Hora de Tajikistán</option>
+
+                <option value="GMT+5:00 - Asia/Karachi - PKT - Hora de Paquistán">GMT+5:00 - Asia/Karachi - PKT - Hora de Paquistán</option>
+
+                <option value="GMT+5:00 - Asia/Oral - ORAT - Hora de Oral">GMT+5:00 - Asia/Oral - ORAT - Hora de Oral</option>
+
+                <option value="GMT+5:00 - Asia/Samarkand - UZT - Hora de Uzbekistán">GMT+5:00 - Asia/Samarkand - UZT - Hora de Uzbekistán</option>
+
+                <option value="GMT+5:00 - Asia/Tashkent - UZT - Hora de Uzbekistán">GMT+5:00 - Asia/Tashkent - UZT - Hora de Uzbekistán</option>
+
+                <option value="GMT+5:00 - Asia/Yekaterinburg - YEKT - Hora de Yekaterinburgo">GMT+5:00 - Asia/Yekaterinburg - YEKT - Hora de Yekaterinburgo</option>
+
+                <option value="GMT+5:00 - Etc/GMT-5 - - - GMT+05:00">GMT+5:00 - Etc/GMT-5 - - - GMT+05:00</option>
+
+                <option value="GMT+5:00 - Indian/Kerguelen - TFT - Hora de los Territorios Franceses del Sur y de la Antártida">GMT+5:00 - Indian/Kerguelen - TFT - Hora de los Territorios Franceses del Sur y de la Antártida</option>
+
+                <option value="GMT+5:00 - Indian/Maldives - MVT - Hora de Maldivas">GMT+5:00 - Indian/Maldives - MVT - Hora de Maldivas</option>
+
+                <option value="GMT+5:00 - PLT - PKT - Hora de Paquistán">GMT+5:00 - PLT - PKT - Hora de Paquistán</option>
+
+                <option value="GMT+5:30 - Asia/Calcuta - IST - Hora oficial de la India">GMT+5:30 - Asia/Calcuta - IST - Hora oficial de la India</option>
+
+                <option value="GMT+5:30 - Asia/Calcutta - IST - Hora oficial de la India">GMT+5:30 - Asia/Calcutta - IST - Hora oficial de la India</option>
+
+                <option value="GMT+5:30 - Asia/Colombo - IST - Hora oficial de la India">GMT+5:30 - Asia/Colombo - IST - Hora oficial de la India</option>
+
+                <option value="GMT+5:30 - IST - IST - Hora oficial de la India">GMT+5:30 - IST - IST - Hora oficial de la India</option>
+
+                <option value="GMT+5:45 - Asia/Kathmandu - NPT - Hora de Nepal">GMT+5:45 - Asia/Kathmandu - NPT - Hora de Nepal</option>
+
+                <option value="GMT+5:45 - Asia/Katmandu - NPT - Hora de Nepal">GMT+5:45 - Asia/Katmandu - NPT - Hora de Nepal</option>
+
+                <option value="GMT+6:00 - Antarctica/Mawson - MAWT - Hora de Mawson">GMT+6:00 - Antarctica/Mawson - MAWT - Hora de Mawson</option>
+
+                <option value="GMT+6:00 - Antarctica/Vostok - VOST - Hora de Vostok">GMT+6:00 - Antarctica/Vostok - VOST - Hora de Vostok</option>
+
+                <option value="GMT+6:00 - Asia/Almaty - ALMT - Hora de Alma-Ata">GMT+6:00 - Asia/Almaty - ALMT - Hora de Alma-Ata</option>
+
+                <option value="GMT+6:00 - Asia/Bishkek - KGT - Hora de Kirguisitán">GMT+6:00 - Asia/Bishkek - KGT - Hora de Kirguisitán</option>
+
+                <option value="GMT+6:00 - Asia/Dacca - BDT - Hora de Bangladesh">GMT+6:00 - Asia/Dacca - BDT - Hora de Bangladesh</option>
+
+                <option value="GMT+6:00 - Asia/Dhaka - BDT - Hora de Bangladesh">GMT+6:00 - Asia/Dhaka - BDT - Hora de Bangladesh</option>
+
+                <option value="GMT+6:00 - Asia/Novosibirsk - NOVT - Hora de Novosibirsk">GMT+6:00 - Asia/Novosibirsk - NOVT - Hora de Novosibirsk</option>
+
+                <option value="GMT+6:00 - Asia/Omsk - OMST - Hora de Omsk">GMT+6:00 - Asia/Omsk - OMST - Hora de Omsk</option>
+
+                <option value="GMT+6:00 - Asia/Qyzylorda - QYZT - Hora de Qyzylorda">GMT+6:00 - Asia/Qyzylorda - QYZT - Hora de Qyzylorda</option>
+
+                <option value="GMT+6:00 - Asia/Thimbu - BTT - Hora de Bután">GMT+6:00 - Asia/Thimbu - BTT - Hora de Bután</option>
+
+                <option value="GMT+6:00 - Asia/Thimphu - BTT - Hora de Bután">GMT+6:00 - Asia/Thimphu - BTT - Hora de Bután</option>
+
+                <option value="GMT+6:00 - BST - BDT - Hora de Bangladesh">GMT+6:00 - BST - BDT - Hora de Bangladesh</option>
+
+                <option value="GMT+6:00 - Etc/GMT-6 - - - GMT+06:00">GMT+6:00 - Etc/GMT-6 - - - GMT+06:00</option>
+
+                <option value="GMT+6:00 - Indian/Chagos - IOT - Hora del Territorio del Océano Índico">GMT+6:00 - Indian/Chagos - IOT - Hora del Territorio del Océano Índico</option>
+
+                <option value="GMT+6:30 - Asia/Rangoon - MMT - Hora de Myanmar">GMT+6:30 - Asia/Rangoon - MMT - Hora de Myanmar</option>
+
+                <option value="GMT+6:30 - Indian/Cocos - CCT - Hora de las Islas Cocos">GMT+6:30 - Indian/Cocos - CCT - Hora de las Islas Cocos</option>
+
+                <option value="GMT+7:00 - Antarctica/Davis - DAVT - Hora de Davis">GMT+7:00 - Antarctica/Davis - DAVT - Hora de Davis</option>
+
+                <option value="GMT+7:00 - Asia/Bangkok - ICT - Hora de Indochina">GMT+7:00 - Asia/Bangkok - ICT - Hora de Indochina</option>
+
+                <option value="GMT+7:00 - Asia/Ho_Chi_Minh - ICT - Hora de Indochina">GMT+7:00 - Asia/Ho_Chi_Minh - ICT - Hora de Indochina</option>
+
+                <option value="GMT+7:00 - Asia/Hovd - HOVT - Hora de Hovd">GMT+7:00 - Asia/Hovd - HOVT - Hora de Hovd</option>
+
+                <option value="GMT+7:00 - Asia/Jakarta - WIT - Hora de Indonesia occidental">GMT+7:00 - Asia/Jakarta - WIT - Hora de Indonesia occidental</option>
+
+                <option value="GMT+7:00 - Asia/Krasnoyarsk - KRAT - Hora Krasnoyarsk">GMT+7:00 - Asia/Krasnoyarsk - KRAT - Hora Krasnoyarsk</option>
+
+                <option value="GMT+7:00 - Asia/Phnom_Penh - ICT - Hora de Indochina">GMT+7:00 - Asia/Phnom_Penh - ICT - Hora de Indochina</option>
+
+                <option value="GMT+7:00 - Asia/Pontianak - WIT - Hora de Indonesia occidental">GMT+7:00 - Asia/Pontianak - WIT - Hora de Indonesia occidental</option>
+
+                <option value="GMT+7:00 - Asia/Saigon - ICT - Hora de Indochina">GMT+7:00 - Asia/Saigon - ICT - Hora de Indochina</option>
+
+                <option value="GMT+7:00 - Asia/Vientiane - ICT - Hora de Indochina">GMT+7:00 - Asia/Vientiane - ICT - Hora de Indochina</option>
+
+                <option value="GMT+7:00 - Etc/GMT-7 - - - GMT+07:00">GMT+7:00 - Etc/GMT-7 - - - GMT+07:00</option>
+
+                <option value="GMT+7:00 - Indian/Christmas - CXT - Hora de la Isla de Christmas">GMT+7:00 - Indian/Christmas - CXT - Hora de la Isla de Christmas</option>
+
+                <option value="GMT+7:00 - VST - ICT - Hora de Indochina">GMT+7:00 - VST - ICT - Hora de Indochina</option>
+
+                <option value="GMT+8:00 - Antarctica/Casey - WST - Hora oficial occidental (Australia)">GMT+8:00 - Antarctica/Casey - WST - Hora oficial occidental (Australia)</option>
+
+                <option value="GMT+8:00 - Asia/Brunei - BNT - Hora de Brunei">GMT+8:00 - Asia/Brunei - BNT - Hora de Brunei</option>
+
+                <option value="GMT+8:00 - Asia/Choibalsan - CHOT - Hora de Choibalsan">GMT+8:00 - Asia/Choibalsan - CHOT - Hora de Choibalsan</option>
+
+                <option value="GMT+8:00 - Asia/Chongqing - CST - Hora oficial de China">GMT+8:00 - Asia/Chongqing - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Chungking - CST - Hora oficial de China">GMT+8:00 - Asia/Chungking - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Harbin - CST - Hora oficial de China">GMT+8:00 - Asia/Harbin - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Hong_Kong - HKT - Hora de Hong Kong">GMT+8:00 - Asia/Hong_Kong - HKT - Hora de Hong Kong</option>
+
+                <option value="GMT+8:00 - Asia/Irkutsk - IRKT - Hora de Irkutsk">GMT+8:00 - Asia/Irkutsk - IRKT - Hora de Irkutsk</option>
+
+                <option value="GMT+8:00 - Asia/Kashgar - CST - Hora oficial de China">GMT+8:00 - Asia/Kashgar - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Kuala_Lumpur - MYT - Hora de Malasia">GMT+8:00 - Asia/Kuala_Lumpur - MYT - Hora de Malasia</option>
+
+                <option value="GMT+8:00 - Asia/Kuching - MYT - Hora de Malasia">GMT+8:00 - Asia/Kuching - MYT - Hora de Malasia</option>
+
+                <option value="GMT+8:00 - Asia/Macao - CST - Hora oficial de China">GMT+8:00 - Asia/Macao - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Macau - CST - Hora oficial de China">GMT+8:00 - Asia/Macau - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Makassar - CIT - Hora de Indonesia Central">GMT+8:00 - Asia/Makassar - CIT - Hora de Indonesia Central</option>
+
+                <option value="GMT+8:00 - Asia/Manila - PHT - Hora de Filipinas">GMT+8:00 - Asia/Manila - PHT - Hora de Filipinas</option>
+
+                <option value="GMT+8:00 - Asia/Shanghai - CST - Hora oficial de China">GMT+8:00 - Asia/Shanghai - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Singapore - SGT - Hora de Singapur">GMT+8:00 - Asia/Singapore - SGT - Hora de Singapur</option>
+
+                <option value="GMT+8:00 - Asia/Taipei - CST - Hora oficial de China">GMT+8:00 - Asia/Taipei - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Asia/Ujung_Pandang - CIT - Hora de Indonesia Central">GMT+8:00 - Asia/Ujung_Pandang - CIT - Hora de Indonesia Central</option>
+
+                <option value="GMT+8:00 - Asia/Ulaanbaatar - ULAT - Hora de Ulaanbaatar">GMT+8:00 - Asia/Ulaanbaatar - ULAT - Hora de Ulaanbaatar</option>
+
+                <option value="GMT+8:00 - Asia/Ulan_Bator - ULAT - Hora de Ulaanbaatar">GMT+8:00 - Asia/Ulan_Bator - ULAT - Hora de Ulaanbaatar</option>
+
+                <option value="GMT+8:00 - Asia/Urumqi - CST - Hora oficial de China">GMT+8:00 - Asia/Urumqi - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Australia/Perth - WST - Hora oficial occidental (Australia)">GMT+8:00 - Australia/Perth - WST - Hora oficial occidental (Australia)</option>
+
+                <option value="GMT+8:00 - Australia/West - WST - Hora oficial occidental (Australia)">GMT+8:00 - Australia/West - WST - Hora oficial occidental (Australia)</option>
+
+                <option value="GMT+8:00 - CTT - CST - Hora oficial de China">GMT+8:00 - CTT - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Etc/GMT-8 - - - GMT+08:00">GMT+8:00 - Etc/GMT-8 - - - GMT+08:00</option>
+
+                <option value="GMT+8:00 - Hongkong - HKT - Hora de Hong Kong">GMT+8:00 - Hongkong - HKT - Hora de Hong Kong</option>
+
+                <option value="GMT+8:00 - PRC - CST - Hora oficial de China">GMT+8:00 - PRC - CST - Hora oficial de China</option>
+
+                <option value="GMT+8:00 - Singapore - SGT - Hora de Singapur">GMT+8:00 - Singapore - SGT - Hora de Singapur</option>
+
+                <option value="GMT+8:45 - Australia/Eucla - CWST - Hora oficial central occidental (Australia)">GMT+8:45 - Australia/Eucla - CWST - Hora oficial central occidental (Australia)</option>
+
+                <option value="GMT+9:00 - Asia/Dili - TLT - Hora de Timor Oriental">GMT+9:00 - Asia/Dili - TLT - Hora de Timor Oriental</option>
+
+                <option value="GMT+9:00 - Asia/Jayapura - EIT - Hora de Indonesia oriental">GMT+9:00 - Asia/Jayapura - EIT - Hora de Indonesia oriental</option>
+
+                <option value="GMT+9:00 - Asia/Pyongyang - KST - Hora oficial de Corea">GMT+9:00 - Asia/Pyongyang - KST - Hora oficial de Corea</option>
+
+                <option value="GMT+9:00 - Asia/Seoul - KST - Hora oficial de Corea">GMT+9:00 - Asia/Seoul - KST - Hora oficial de Corea</option>
+
+                <option value="GMT+9:00 - Asia/Tokyo - JST - Hora oficial de Japón">GMT+9:00 - Asia/Tokyo - JST - Hora oficial de Japón</option>
+
+                <option value="GMT+9:00 - Asia/Yakutsk - YAKT - Hora de Yakutsk">GMT+9:00 - Asia/Yakutsk - YAKT - Hora de Yakutsk</option>
+
+                <option value="GMT+9:00 - Etc/GMT-9 - - - GMT+09:00">GMT+9:00 - Etc/GMT-9 - - - GMT+09:00</option>
+
+                <option value="GMT+9:00 - JST - JST - Hora oficial de Japón">GMT+9:00 - JST - JST - Hora oficial de Japón</option>
+
+                <option value="GMT+9:00 - Japan - JST - Hora oficial de Japón">GMT+9:00 - Japan - JST - Hora oficial de Japón</option>
+
+                <option value="GMT+9:00 - Pacific/Palau - PWT - Hora de Palau">GMT+9:00 - Pacific/Palau - PWT - Hora de Palau</option>
+
+                <option value="GMT+9:00 - ROK - KST - Hora oficial de Corea">GMT+9:00 - ROK - KST - Hora oficial de Corea</option>
+
+                <option value="GMT+9:30 - ACT - CST - Hora oficial central (Territorio del Norte)">GMT+9:30 - ACT - CST - Hora oficial central (Territorio del Norte)</option>
+
+                <option value="GMT+9:30 - Australia/Adelaide - CST - Hora oficial central (Sur de Australia)">GMT+9:30 - Australia/Adelaide - CST - Hora oficial central (Sur de Australia)</option>
+
+                <option value="GMT+9:30 - Australia/Broken_Hill - CST - Hora oficial central (Sur de Australia/Nueva Gales del Sur)">GMT+9:30 - Australia/Broken_Hill - CST - Hora oficial central (Sur de Australia/Nueva Gales del Sur)</option>
+
+                <option value="GMT+9:30 - Australia/Darwin - CST - Hora oficial central (Territorio del Norte)">GMT+9:30 - Australia/Darwin - CST - Hora oficial central (Territorio del Norte)</option>
+
+                <option value="GMT+9:30 - Australia/North - CST - Hora oficial central (Territorio del Norte)">GMT+9:30 - Australia/North - CST - Hora oficial central (Territorio del Norte)</option>
+
+                <option value="GMT+9:30 - Australia/South - CST - Hora oficial central (Sur de Australia)">GMT+9:30 - Australia/South - CST - Hora oficial central (Sur de Australia)</option>
+
+                <option value="GMT+9:30 - Australia/Yancowinna - CST - Hora oficial central (Sur de Australia/Nueva Gales del Sur)">GMT+9:30 - Australia/Yancowinna - CST - Hora oficial central (Sur de Australia/Nueva Gales del Sur)</option>
+
+                <option value="GMT-10:00 - America/Adak - HAST - Hora oficial de Hawaii-Aleutianas">GMT-10:00 - America/Adak - HAST - Hora oficial de Hawaii-Aleutianas</option>
+
+                <option value="GMT-10:00 - America/Atka - HAST - Hora oficial de Hawaii-Aleutianas">GMT-10:00 - America/Atka - HAST - Hora oficial de Hawaii-Aleutianas</option>
+
+                <option value="GMT-10:00 - Etc/GMT+10 - - - GMT-10:00">GMT-10:00 - Etc/GMT+10 - - - GMT-10:00</option>
+
+                <option value="GMT-10:00 - HST - HST - Hora oficial de Hawaii">GMT-10:00 - HST - HST - Hora oficial de Hawaii</option>
+
+                <option value="GMT-10:00 - Pacific/Fakaofo - TKT - Hora de Tokelau">GMT-10:00 - Pacific/Fakaofo - TKT - Hora de Tokelau</option>
+
+                <option value="GMT-10:00 - Pacific/Honolulu - HST - Hora oficial de Hawaii">GMT-10:00 - Pacific/Honolulu - HST - Hora oficial de Hawaii</option>
+
+                <option value="GMT-10:00 - Pacific/Johnston - HST - Hora oficial de Hawaii">GMT-10:00 - Pacific/Johnston - HST - Hora oficial de Hawaii</option>
+
+                <option value="GMT-10:00 - Pacific/Rarotonga - CKT - Hora de las Islas Cook">GMT-10:00 - Pacific/Rarotonga - CKT - Hora de las Islas Cook</option>
+
+                <option value="GMT-10:00 - Pacific/Tahiti - TAHT - Hora de Tahití">GMT-10:00 - Pacific/Tahiti - TAHT - Hora de Tahití</option>
+
+                <option value="GMT-10:00 - SystemV/HST10 - HST - Hora oficial de Hawaii">GMT-10:00 - SystemV/HST10 - HST - Hora oficial de Hawaii</option>
+
+                <option value="GMT-10:00 - US/Aleutian - HAST - Hora oficial de Hawaii-Aleutianas">GMT-10:00 - US/Aleutian - HAST - Hora oficial de Hawaii-Aleutianas</option>
+
+                <option value="GMT-10:00 - US/Hawaii - HST - Hora oficial de Hawaii">GMT-10:00 - US/Hawaii - HST - Hora oficial de Hawaii</option>
+
+                <option value="GMT-11:00 - Etc/GMT+11 - - - GMT-11:00">GMT-11:00 - Etc/GMT+11 - - - GMT-11:00</option>
+
+                <option value="GMT-11:00 - MIT - WST - Hora de Samoa occidental">GMT-11:00 - MIT - WST - Hora de Samoa occidental</option>
+
+                <option value="GMT-11:00 - Pacific/Apia - WST - Hora de Samoa occidental">GMT-11:00 - Pacific/Apia - WST - Hora de Samoa occidental</option>
+
+                <option value="GMT-11:00 - Pacific/Midway - SST - Hora oficial de Samoa">GMT-11:00 - Pacific/Midway - SST - Hora oficial de Samoa</option>
+
+                <option value="GMT-11:00 - Pacific/Niue - NUT - Hora de Niue">GMT-11:00 - Pacific/Niue - NUT - Hora de Niue</option>
+
+                <option value="GMT-11:00 - Pacific/Pago_Pago - SST - Hora oficial de Samoa">GMT-11:00 - Pacific/Pago_Pago - SST - Hora oficial de Samoa</option>
+
+                <option value="GMT-11:00 - Pacific/Samoa - SST - Hora oficial de Samoa">GMT-11:00 - Pacific/Samoa - SST - Hora oficial de Samoa</option>
+
+                <option value="GMT-11:00 - US/Samoa - SST - Hora oficial de Samoa">GMT-11:00 - US/Samoa - SST - Hora oficial de Samoa</option>
+
+                <option value="GMT-12:00 - Etc/GMT+12 - - - GMT-12:00">GMT-12:00 - Etc/GMT+12 - - - GMT-12:00</option>
+
+                <option value="GMT-1:00 - America/Scoresbysund - EGT - Hora de Groenlandia (Este)">GMT-1:00 - America/Scoresbysund - EGT - Hora de Groenlandia (Este)</option>
+
+                <option value="GMT-1:00 - Atlantic/Azores - AZOT - Hora de Azores">GMT-1:00 - Atlantic/Azores - AZOT - Hora de Azores</option>
+
+                <option value="GMT-1:00 - Atlantic/Cape_Verde - CVT - Hora de Cabo Verde">GMT-1:00 - Atlantic/Cape_Verde - CVT - Hora de Cabo Verde</option>
+
+                <option value="GMT-1:00 - Etc/GMT+1 - - - GMT-01:00">GMT-1:00 - Etc/GMT+1 - - - GMT-01:00</option>
+
+                <option value="GMT-2:00 - America/Noronha - FNT - Hora de Fernando de Noronha">GMT-2:00 - America/Noronha - FNT - Hora de Fernando de Noronha</option>
+
+                <option value="GMT-2:00 - Atlantic/South_Georgia - GST - Hora oficial de Georgia del sur">GMT-2:00 - Atlantic/South_Georgia - GST - Hora oficial de Georgia del sur</option>
+
+                <option value="GMT-2:00 - Brazil/DeNoronha - FNT - Hora de Fernando de Noronha">GMT-2:00 - Brazil/DeNoronha - FNT - Hora de Fernando de Noronha</option>
+
+                <option value="GMT-2:00 - Etc/GMT+2 - - - GMT-02:00">GMT-2:00 - Etc/GMT+2 - - - GMT-02:00</option>
+
+                <option value="GMT-3:00 - AGT - ART - Hora de Argentina">GMT-3:00 - AGT - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Araguaina - BRT - Hora de Brasilia">GMT-3:00 - America/Araguaina - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - America/Argentina/Buenos_Aires - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Buenos_Aires - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Catamarca - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Catamarca - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/ComodRivadavia - ART - Hora de Argentina">GMT-3:00 - America/Argentina/ComodRivadavia - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Cordoba - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Cordoba - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Jujuy - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Jujuy - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/La_Rioja - ART - Hora de Argentina">GMT-3:00 - America/Argentina/La_Rioja - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Mendoza - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Mendoza - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Rio_Gallegos - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Rio_Gallegos - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Salta - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Salta - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/San_Juan - ART - Hora de Argentina">GMT-3:00 - America/Argentina/San_Juan - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Tucuman - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Tucuman - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Argentina/Ushuaia - ART - Hora de Argentina">GMT-3:00 - America/Argentina/Ushuaia - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Bahia - BRT - Hora de Brasilia">GMT-3:00 - America/Bahia - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - America/Belem - BRT - Hora de Brasilia">GMT-3:00 - America/Belem - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - America/Buenos_Aires - ART - Hora de Argentina">GMT-3:00 - America/Buenos_Aires - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Catamarca - ART - Hora de Argentina">GMT-3:00 - America/Catamarca - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Cayenne - GFT - Hora de Guayana francesa">GMT-3:00 - America/Cayenne - GFT - Hora de Guayana francesa</option>
+
+                <option value="GMT-3:00 - America/Cordoba - ART - Hora de Argentina">GMT-3:00 - America/Cordoba - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Fortaleza - BRT - Hora de Brasilia">GMT-3:00 - America/Fortaleza - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - America/Godthab - WGT - Hora de Groenlandia Occidental">GMT-3:00 - America/Godthab - WGT - Hora de Groenlandia Occidental</option>
+
+                <option value="GMT-3:00 - America/Jujuy - ART - Hora de Argentina">GMT-3:00 - America/Jujuy - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Maceio - BRT - Hora de Brasilia">GMT-3:00 - America/Maceio - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - America/Mendoza - ART - Hora de Argentina">GMT-3:00 - America/Mendoza - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Miquelon - PMST - Hora oficial de Pierre y Miquelon">GMT-3:00 - America/Miquelon - PMST - Hora oficial de Pierre y Miquelon</option>
+
+                <option value="GMT-3:00 - America/Montevideo - UYT - Hora de Uruguay">GMT-3:00 - America/Montevideo - UYT - Hora de Uruguay</option>
+
+                <option value="GMT-3:00 - America/Paramaribo - SRT - Hora de Surinam">GMT-3:00 - America/Paramaribo - SRT - Hora de Surinam</option>
+
+                <option value="GMT-3:00 - America/Recife - BRT - Hora de Brasilia">GMT-3:00 - America/Recife - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - America/Rosario - ART - Hora de Argentina">GMT-3:00 - America/Rosario - ART - Hora de Argentina</option>
+
+                <option value="GMT-3:00 - America/Sao_Paulo - BRT - Hora de Brasilia">GMT-3:00 - America/Sao_Paulo - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - América/Santarem - BRT - Hora de Brasilia">GMT-3:00 - América/Santarem - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - Antarctica/Rothera - ROTT - Hora de Rothera">GMT-3:00 - Antarctica/Rothera - ROTT - Hora de Rothera</option>
+
+                <option value="GMT-3:00 - BET - BRT - Hora de Brasilia">GMT-3:00 - BET - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - Brazil/East - BRT - Hora de Brasilia">GMT-3:00 - Brazil/East - BRT - Hora de Brasilia</option>
+
+                <option value="GMT-3:00 - Etc/GMT+3 - - - GMT-03:00">GMT-3:00 - Etc/GMT+3 - - - GMT-03:00</option>
+
+                <option value="GMT-3:30 - America/St_Johns - NST - Hora oficial de Terranova">GMT-3:30 - America/St_Johns - NST - Hora oficial de Terranova</option>
+
+                <option value="GMT-3:30 - CNT - NST - Hora oficial de Terranova">GMT-3:30 - CNT - NST - Hora oficial de Terranova</option>
+
+                <option value="GMT-3:30 - Canada/Newfoundland - NST - Hora oficial de Terranova">GMT-3:30 - Canada/Newfoundland - NST - Hora oficial de Terranova</option>
+
+                <option value="GMT-4:00 - America/Anguilla - AST - Hora oficial del Atlántico">GMT-4:00 - America/Anguilla - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Antigua - AST - Hora oficial del Atlántico">GMT-4:00 - America/Antigua - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Argentina/San_Luis - WART - Hora de Argentina occidental">GMT-4:00 - America/Argentina/San_Luis - WART - Hora de Argentina occidental</option>
+
+                <option value="GMT-4:00 - America/Aruba - AST - Hora oficial del Atlántico">GMT-4:00 - America/Aruba - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Asuncion - PYT - Hora de Paraguay">GMT-4:00 - America/Asuncion - PYT - Hora de Paraguay</option>
+
+                <option value="GMT-4:00 - America/Barbados - AST - Hora oficial del Atlántico">GMT-4:00 - America/Barbados - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Boa_Vista - AMT - Hora de Amazonia">GMT-4:00 - America/Boa_Vista - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Campo_Grande - AMT - Hora de Amazonia">GMT-4:00 - America/Campo_Grande - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Cuiaba - AMT - Hora de Amazonia">GMT-4:00 - America/Cuiaba - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Curacao - AST - Hora oficial del Atlántico">GMT-4:00 - America/Curacao - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Dominica - AST - Hora oficial del Atlántico">GMT-4:00 - America/Dominica - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Eirunepe - AMT - Hora de Amazonia">GMT-4:00 - America/Eirunepe - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Glace_Bay - AST - Hora oficial del Atlántico">GMT-4:00 - America/Glace_Bay - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Goose_Bay - AST - Hora oficial del Atlántico">GMT-4:00 - America/Goose_Bay - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Grenada - AST - Hora oficial del Atlántico">GMT-4:00 - America/Grenada - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Guadeloupe - AST - Hora oficial del Atlántico">GMT-4:00 - America/Guadeloupe - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Guyana - GYT - Hora de Guyana">GMT-4:00 - America/Guyana - GYT - Hora de Guyana</option>
+
+                <option value="GMT-4:00 - America/Halifax - AST - Hora oficial del Atlántico">GMT-4:00 - America/Halifax - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/La_Paz - BOT - Hora de Bolivia">GMT-4:00 - America/La_Paz - BOT - Hora de Bolivia</option>
+
+                <option value="GMT-4:00 - America/Manaus - AMT - Hora de Amazonia">GMT-4:00 - America/Manaus - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Martinique - AST - Hora oficial del Atlántico">GMT-4:00 - America/Martinique - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Moncton - AST - Hora oficial del Atlántico">GMT-4:00 - America/Moncton - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Montserrat - AST - Hora oficial del Atlántico">GMT-4:00 - America/Montserrat - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Port_of_Spain - AST - Hora oficial del Atlántico">GMT-4:00 - America/Port_of_Spain - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Porto_Acre - AMT - Hora de Amazonia">GMT-4:00 - America/Porto_Acre - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Porto_Velho - AMT - Hora de Amazonia">GMT-4:00 - America/Porto_Velho - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Puerto_Rico - AST - Hora oficial del Atlántico">GMT-4:00 - America/Puerto_Rico - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Rio_Branco - AMT - Hora de Amazonia">GMT-4:00 - America/Rio_Branco - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - America/Santiago - CLT - Hora de Chile">GMT-4:00 - America/Santiago - CLT - Hora de Chile</option>
+
+                <option value="GMT-4:00 - America/Santo_Domingo - AST - Hora oficial del Atlántico">GMT-4:00 - America/Santo_Domingo - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/St_Kitts - AST - Hora oficial del Atlántico">GMT-4:00 - America/St_Kitts - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/St_Lucia - AST - Hora oficial del Atlántico">GMT-4:00 - America/St_Lucia - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/St_Thomas - AST - Hora oficial del Atlántico">GMT-4:00 - America/St_Thomas - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/St_Vincent - AST - Hora oficial del Atlántico">GMT-4:00 - America/St_Vincent - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Thule - AST - Hora oficial del Atlántico">GMT-4:00 - America/Thule - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Tortola - AST - Hora oficial del Atlántico">GMT-4:00 - America/Tortola - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - America/Virgin - AST - Hora oficial del Atlántico">GMT-4:00 - America/Virgin - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - América/Blanc-Sablon - AST - Hora oficial del Atlántico">GMT-4:00 - América/Blanc-Sablon - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - América/Marigot - AST - Hora oficial del Atlántico">GMT-4:00 - América/Marigot - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - América/St_Barthelemy - AST - Hora oficial del Atlántico">GMT-4:00 - América/St_Barthelemy - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - Antarctica/Palmer - CLT - Hora de Chile">GMT-4:00 - Antarctica/Palmer - CLT - Hora de Chile</option>
+
+                <option value="GMT-4:00 - Atlantic/Bermuda - AST - Hora oficial del Atlántico">GMT-4:00 - Atlantic/Bermuda - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - Atlantic/Stanley - FKT - Hora de las Islas Falkland">GMT-4:00 - Atlantic/Stanley - FKT - Hora de las Islas Falkland</option>
+
+                <option value="GMT-4:00 - Brazil/Acre - AMT - Hora de Amazonia">GMT-4:00 - Brazil/Acre - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - Brazil/West - AMT - Hora de Amazonia">GMT-4:00 - Brazil/West - AMT - Hora de Amazonia</option>
+
+                <option value="GMT-4:00 - Canada/Atlantic - AST - Hora oficial del Atlántico">GMT-4:00 - Canada/Atlantic - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - Chile/Continental - CLT - Hora de Chile">GMT-4:00 - Chile/Continental - CLT - Hora de Chile</option>
+
+                <option value="GMT-4:00 - Etc/GMT+4 - - - GMT-04:00">GMT-4:00 - Etc/GMT+4 - - - GMT-04:00</option>
+
+                <option value="GMT-4:00 - PRT - AST - Hora oficial del Atlántico">GMT-4:00 - PRT - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - SystemV/AST4 - AST - Hora oficial del Atlántico">GMT-4:00 - SystemV/AST4 - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:00 - SystemV/AST4ADT - AST - Hora oficial del Atlántico">GMT-4:00 - SystemV/AST4ADT - AST - Hora oficial del Atlántico</option>
+
+                <option value="GMT-4:30 - America/Caracas - VET - Hora de Venezuela">GMT-4:30 - America/Caracas - VET - Hora de Venezuela</option>
+
+                <option value="GMT-5:00 - America/Atikokan - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Atikokan - EST - Hora oficial del Este de EE.UU.</option>
+
+                
+
+                <option value="GMT-5:00 - America/Cayman - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Cayman - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Coral_Harbour - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Coral_Harbour - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Detroit - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Detroit - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Fort_Wayne - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Fort_Wayne - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Grand_Turk - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Grand_Turk - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Guayaquil - ECT - Hora de Ecuador">GMT-5:00 - America/Guayaquil - ECT - Hora de Ecuador</option>
+
+                <option value="GMT-5:00 - America/Havana - CST - Hora oficial de Cuba">GMT-5:00 - America/Havana - CST - Hora oficial de Cuba</option>
+
+                <option value="GMT-5:00 - America/Indiana/Indianapolis - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indiana/Indianapolis - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Indiana/Marengo - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indiana/Marengo - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Indiana/Petersburg - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indiana/Petersburg - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Indiana/Vevay - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indiana/Vevay - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Indiana/Vincennes - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indiana/Vincennes - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Indiana/Winamac - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indiana/Winamac - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Indianapolis - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Indianapolis - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Iqaluit - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Iqaluit - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Jamaica - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Jamaica - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Kentucky/Louisville - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Kentucky/Louisville - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Kentucky/Monticello - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Kentucky/Monticello - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Lima - PET - Hora de Perú">GMT-5:00 - America/Lima - PET - Hora de Perú</option>
+
+                <option value="GMT-5:00 - America/Louisville - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Louisville - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Montreal - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Montreal - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Nassau - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Nassau - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/New_York - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/New_York - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Nipigon - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Nipigon - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Panamá - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Panamá - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Pangnirtung - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Pangnirtung - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Port-au-Prince - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Port-au-Prince - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Resolute - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Resolute - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Thunder_Bay - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Thunder_Bay - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - America/Toronto - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - America/Toronto - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - Canada/Eastern - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - Canada/Eastern - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - Cuba - CST - Hora oficial de Cuba">GMT-5:00 - Cuba - CST - Hora oficial de Cuba</option>
+
+                <option value="GMT-5:00 - EST - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - EST - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - EST5EDT - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - EST5EDT - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - Etc/GMT+5 - - - GMT-05:00">GMT-5:00 - Etc/GMT+5 - - - GMT-05:00</option>
+
+                <option value="GMT-5:00 - IET - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - IET - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - Jamaica - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - Jamaica - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - SystemV/EST5 - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - SystemV/EST5 - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - SystemV/EST5EDT - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - SystemV/EST5EDT - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - US/East-Indiana - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - US/East-Indiana - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - US/Eastern - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - US/Eastern - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-5:00 - US/Michigan - EST - Hora oficial del Este de EE.UU.">GMT-5:00 - US/Michigan - EST - Hora oficial del Este de EE.UU.</option>
+
+                <option value="GMT-6:00 - America/Belize - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Belize - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Cancun - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Cancun - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Chicago - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Chicago - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Costa_Rica - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Costa_Rica - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/El_Salvador - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/El_Salvador - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Guatemala - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Guatemala - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Indiana/Knox - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Indiana/Knox - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Indiana/Tell_City - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Indiana/Tell_City - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Knox_IN - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Knox_IN - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Managua - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Managua - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Menominee - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Menominee - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Merida - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Merida - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Mexico_City - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Mexico_City - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Monterrey - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Monterrey - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/North_Dakota/Center - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/North_Dakota/Center - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/North_Dakota/New_Salem - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/North_Dakota/New_Salem - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Rainy_River - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Rainy_River - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Rankin_Inlet - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Rankin_Inlet - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Regina - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Regina - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Swift_Current - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Swift_Current - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Tegucigalpa - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Tegucigalpa - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - America/Winnipeg - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - America/Winnipeg - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - CST - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - CST - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - CST6CDT - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - CST6CDT - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - Canada/Central - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - Canada/Central - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - Canada/East-Saskatchewan - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - Canada/East-Saskatchewan - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - Canada/Saskatchewan - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - Canada/Saskatchewan - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - Chile/EasterIsland - EAST - Hora de la Isla de Pascua">GMT-6:00 - Chile/EasterIsland - EAST - Hora de la Isla de Pascua</option>
+
+                <option value="GMT-6:00 - Etc/GMT+6 - - - GMT-06:00">GMT-6:00 - Etc/GMT+6 - - - GMT-06:00</option>
+
+                <option value="GMT-6:00 - Mexico/General - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - Mexico/General - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - Pacific/Easter - EAST - Hora de la Isla de Pascua">GMT-6:00 - Pacific/Easter - EAST - Hora de la Isla de Pascua</option>
+
+                <option value="GMT-6:00 - Pacific/Galapagos - GALT - Hora de Galápagos">GMT-6:00 - Pacific/Galapagos - GALT - Hora de Galápagos</option>
+
+                <option value="GMT-6:00 - SystemV/CST6 - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - SystemV/CST6 - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - SystemV/CST6CDT - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - SystemV/CST6CDT - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - US/Central - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - US/Central - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-6:00 - US/Indiana-Starke - CST - Hora oficial central (EEUU y Canadá)">GMT-6:00 - US/Indiana-Starke - CST - Hora oficial central (EEUU y Canadá)</option>
+
+                <option value="GMT-7:00 - America/Boise - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Boise - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Cambridge_Bay - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Cambridge_Bay - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Chihuahua - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Chihuahua - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Dawson_Creek - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Dawson_Creek - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Denver - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Denver - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Edmonton - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Edmonton - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Hermosillo - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Hermosillo - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Inuvik - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Inuvik - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Mazatlan - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Mazatlan - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Phoenix - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Phoenix - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Shiprock - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Shiprock - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - America/Yellowknife - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - America/Yellowknife - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - Canada/Mountain - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - Canada/Mountain - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - Etc/GMT+7 - - - GMT-07:00">GMT-7:00 - Etc/GMT+7 - - - GMT-07:00</option>
+
+                <option value="GMT-7:00 - MST - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - MST - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - MST7MDT - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - MST7MDT - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - Mexico/BajaSur - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - Mexico/BajaSur - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - Navajo - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - Navajo - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - PNT - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - PNT - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - SystemV/MST7 - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - SystemV/MST7 - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - SystemV/MST7MDT - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - SystemV/MST7MDT - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - US/Arizona - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - US/Arizona - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-7:00 - US/Mountain - MST - Hora oficial de las Montañas Rocosas">GMT-7:00 - US/Mountain - MST - Hora oficial de las Montañas Rocosas</option>
+
+                <option value="GMT-8:00 - America/Dawson - PST - Hora oficial del Pacífico">GMT-8:00 - America/Dawson - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - America/Ensenada - PST - Hora oficial del Pacífico">GMT-8:00 - America/Ensenada - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - America/Los_Angeles - PST - Hora oficial del Pacífico">GMT-8:00 - America/Los_Angeles - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - America/Tijuana - PST - Hora oficial del Pacífico">GMT-8:00 - America/Tijuana - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - America/Vancouver - PST - Hora oficial del Pacífico">GMT-8:00 - America/Vancouver - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - America/Whitehorse - PST - Hora oficial del Pacífico">GMT-8:00 - America/Whitehorse - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - Canada/Pacific - PST - Hora oficial del Pacífico">GMT-8:00 - Canada/Pacific - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - Canada/Yukon - PST - Hora oficial del Pacífico">GMT-8:00 - Canada/Yukon - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - Etc/GMT+8 - - - GMT-08:00">GMT-8:00 - Etc/GMT+8 - - - GMT-08:00</option>
+
+                <option value="GMT-8:00 - Mexico/BajaNorte - PST - Hora oficial del Pacífico">GMT-8:00 - Mexico/BajaNorte - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - PST - PST - Hora oficial del Pacífico">GMT-8:00 - PST - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - PST8PDT - PST - Hora oficial del Pacífico">GMT-8:00 - PST8PDT - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - Pacific/Pitcairn - PST - Hora oficial de Pitcairn">GMT-8:00 - Pacific/Pitcairn - PST - Hora oficial de Pitcairn</option>
+
+                <option value="GMT-8:00 - SystemV/PST8 - PST - Hora oficial del Pacífico">GMT-8:00 - SystemV/PST8 - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - SystemV/PST8PDT - PST - Hora oficial del Pacífico">GMT-8:00 - SystemV/PST8PDT - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - US/Pacific - PST - Hora oficial del Pacífico">GMT-8:00 - US/Pacific - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-8:00 - US/Pacific-New - PST - Hora oficial del Pacífico">GMT-8:00 - US/Pacific-New - PST - Hora oficial del Pacífico</option>
+
+                <option value="GMT-9:00 - AST - AKST - Hora oficial de Alaska">GMT-9:00 - AST - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - America/Anchorage - AKST - Hora oficial de Alaska">GMT-9:00 - America/Anchorage - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - America/Juneau - AKST - Hora oficial de Alaska">GMT-9:00 - America/Juneau - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - America/Nome - AKST - Hora oficial de Alaska">GMT-9:00 - America/Nome - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - America/Yakutat - AKST - Hora oficial de Alaska">GMT-9:00 - America/Yakutat - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - Etc/GMT+9 - - - GMT-09:00">GMT-9:00 - Etc/GMT+9 - - - GMT-09:00</option>
+
+                <option value="GMT-9:00 - Pacific/Gambier - GAMT - Hora de Gambier">GMT-9:00 - Pacific/Gambier - GAMT - Hora de Gambier</option>
+
+                <option value="GMT-9:00 - SystemV/YST9 - AKST - Hora oficial de Alaska">GMT-9:00 - SystemV/YST9 - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - SystemV/YST9YDT - AKST - Hora oficial de Alaska">GMT-9:00 - SystemV/YST9YDT - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:00 - US/Alaska - AKST - Hora oficial de Alaska">GMT-9:00 - US/Alaska - AKST - Hora oficial de Alaska</option>
+
+                <option value="GMT-9:30 - Pacific/Marquesas - MART - Hora de Marquesas">GMT-9:30 - Pacific/Marquesas - MART - Hora de Marquesas</option>
+            </select>
+
+                <input type="hidden" name="zona_horaria_de_la_llamada[typeField]" value="join_table">
+                <input type="hidden" name="zona_horaria_de_la_llamada[nameDbField]" value="zona_horaria_de_la_llamada">
+                <input type="hidden" name="zona_horaria_de_la_llamada[orderField]" value="900">
+                <input type="hidden" name="zona_horaria_de_la_llamada[required]" value="yes">
+
+        </div>
+
+
+
+
+
+
+
+        <div class="form-group">
+            <label class="text-primary"><strong>Días para hacer las llamadas: </strong></label>
+            
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Lunes" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Lunes</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Martes" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Martes</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Miercoles" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Miercoles</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Jueves" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Jueves</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Viernes" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Viernes</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Sabado" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Sabado</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Domingo" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Domingo</label>
+                </div>
+
+
+                <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input checkboxes" value="Todos los dias" type="checkbox" name="dias_para_hacer_las_llamadas[value][]"> Todos los días</label>
+                </div>
+
+                <input type="hidden" name="dias_para_hacer_las_llamadas[typeField]" value="checkboxes">
+                <input type="hidden" name="dias_para_hacer_las_llamadas[nameDbField]" value="dias_para_hacer_las_llamadas">
+                <input type="hidden" name="dias_para_hacer_las_llamadas[orderField]" value="1000">
+                <input type="hidden" name="dias_para_hacer_las_llamadas[required]" value="no">           
+        </div>
+
+        
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-6 p-0 m-0 mx-auto text-secondary border">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="bg-dark text-white">
+                        <th>MÓDULOS</th>
+                        <th class="text-center">AGREGAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+
+
+                    <tr>
+                        <td class="justify-content-center">Adicionar <strong>BOLSA DE COMISIÓN </strong><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Motivar a la fuerza comercial: Los equipos ven este tipo de compensación variable como una oportunidad de crecimiento"><i class="fa fa-question-circle text-primary text-right"></i></a>
+                        </td>
+
+                        <td class="mx-auto d-block text-center">
+
+                            <input type="number" step="any" value="" placeholder="Ingrese un valor" class="form-control mx-auto" name="adicionar_bolsa_de_comision[value]"> 
+                        </td>
+                            <input type="hidden" name="adicionar_bolsa_de_comision[typeField]" value="number">
+                            <input type="hidden" name="adicionar_bolsa_de_comision[nameDbField]" value="adicionar_bolsa_de_comision">
+                            <input type="hidden" name="adicionar_bolsa_de_comision[orderField]" value="1100">
+                            <input type="hidden" name="adicionar_bolsa_de_comision[required]" value="no">
+                    </tr>
+
+
+
+
+
+                    <tr>
+                        <td>Adicionar <strong>GRABACIÓN</strong> <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Plataforma de grabación fácil de usar y mantener."><i class="fa fa-question-circle text-primary text-right"></i></a>
+
+                        </td>
+                        
+                        <td class="mx-auto d-block text-center">
+                           <select title="Selecciona" class="selectpicker" name="adicionar_grabacion_de_llamadas[value]" required="" tabindex="-98">
+                                <option value="Activado">Activado</option>
+                                <option value="Desactivado">Desactivado</option>
+                            </select>
+                        </td>
+
+                        <input type="hidden" name="adicionar_grabacion_de_llamadas[typeField]" value="dropdown">
+                        <input type="hidden" name="adicionar_grabacion_de_llamadas[nameDbField]" value="adicionar_grabacion_de_llamadas">
+                        <input type="hidden" name="adicionar_grabacion_de_llamadas[orderField]" value="1200">
+                        <input type="hidden" name="adicionar_grabacion_de_llamadas[required]" value="yes">
+
+                    </tr>
+
+
+
+
+
+                    <tr>
+                        <td>Adicionar <strong>CALIDAD </strong><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="La auditoria les proporciona análisis, evaluaciones, recomendaciones, asesoría e información concerniente a las actividades revisadas."><i class="fa fa-question-circle text-primary text-right"></i></a>
+                        </td>
+                        
+                        <td class="mx-auto d-block text-center">
+                                <select title="Selecciona" class="selectpicker" name="adicionar_calidad[value]" required="" tabindex="-98">
+                                    <option value="Activado">Activado</option>
+                                    <option value="Desactivado">Desactivado</option>
+                                </select>
+
+                        </td>
+
+                        <input type="hidden" name="adicionar_calidad[typeField]" value="dropdown">
+                        <input type="hidden" name="adicionar_calidad[nameDbField]" value="adicionar_calidad">
+                        <input type="hidden" name="adicionar_calidad[orderField]" value="1300">
+                        <input type="hidden" name="adicionar_calidad[required]" value="yes">
+
+
+                    </tr>
+
+
+
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+                        <div class="form-row p-0 m-0 mx-auto">
+
+                        <div class="col-lg-4 col-xl-4 p-3 m-0">
+                            <div class="form-group"><label class="text-primary">Nombre:</label>
+                                    <input type="text" value="" class="form-control " name="nombre[value]" required="">
+                                    <input type="hidden" name="nombre[typeField]" value="short_answer">
+                                    <input type="hidden" name="nombre[nameDbField]" value="nombre">
+                                    <input type="hidden" name="nombre[orderField]" value="30">
+                                    <input type="hidden" name="nombre[required]" value="yes">
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-4 col-xl-4 p-3 m-0">
+                            <div class="form-group"><label class="text-primary">Correo electrónico:</label>
+                                <input type="email" value="" class="form-control " name="correo_electronico[value]" required="">
+                                <input type="hidden" name="correo_electronico[typeField]" value="email">
+                                <input type="hidden" name="correo_electronico[nameDbField]" value="correo_electronico">
+                                <input type="hidden" name="correo_electronico[orderField]" value="40">
+                                <input type="hidden" name="correo_electronico[required]" value="yes">
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12 col-lg-4 col-xl-4 p-3 m-0">
+                            <div class="form-group"><label class="text-primary">Celular:</label>
+
+                                <input type="number" step="any" value="" class="form-control " name="celular[value]" required="">
+                                <input type="hidden" name="celular[typeField]" value="number">
+                                <input type="hidden" name="celular[nameDbField]" value="celular">
+                                <input type="hidden" name="celular[orderField]" value="50">
+                                <input type="hidden" name="celular[required]" value="yes">
+                            </div>
+                        </div>
+                    </div>
+
+
+    </div>
+    <input name="mulriple_form" type="hidden" value="1">
+    <div class="form-row p-0 m-0">
+        <div class="col p-0 m-0 p-4">
+            <button class="btn btn-warning btn-lg text-white mx-auto d-block" type="submit"><strong>COTIZAR </strong></button></div>
+
+    </div>
+
+    </form>
+    </section>
+
+    </div>
+
+
+
+    <?= $footer; ?>
+
+    <script type="text/javascript">
+        if (location.protocol == 'http:'){
+            location.href = location.href.replace(/^http:/, 'https:');
+        }
+
+        var password = document.getElementById("user_om_password")
+    , confirm_password = document.getElementById("user_om_password2");
+        
+
+        /*usuario loguin registrado*/
+        $(document).ready(function(){
+            if('<?= $login ?>' == 'true'){
+                var Base64Usrl = Base64.encode(location.href);
+                Base64Usrl =  Base64Usrl.replace(/[/]/g, "OMOLDS");
+                $('#loginUserBtn').html('<i class="fa fa-user-circle-o"></i> Cerrar');
+                $('#loginUserBtn').attr('href','/login/closeSession'+'/'+Base64Usrl);
+                $('#loginUserBtn').removeAttr('data-target');
+                $('#loginUserBtn').removeAttr('data-toggle');
+            }
+
+            password = document.getElementById("user_om_password");
+            confirm_password = document.getElementById("user_om_password2");
+            if(password){
+                password.onchange = validatePassword;
+                password.onkeyup = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+            }
+            $('[data-toggle="tooltip"]').tooltip(); 
+
+        });
+       
+
+
+        var loginform = true;
+        $('#modalLogin').on('show.bs.modal', function (event) {
+            var Base64Usrl = Base64.encode(location.href);
+            Base64Usrl =  Base64Usrl.replace(/[/]/g, "OMOLDS");
+            if(loginform){
+                $('#login-form').attr('action', $('#login-form').attr('action')+'/'+Base64Usrl);
+                loginform = false;
+            }
+            
+        });
+
+       
+        
+        var parameters = {
+            tipoDeMenu: "menú",
+            component: "menú"
+        };
+        $.ajax({
+            data:  parameters,
+            url: '<?=APP_PAGE_OMOLDS;?>web/json_menu',
+            type: 'POST',
+            success: function(result) {
+                var data = result.data || [];
+                if(result.success == "true"){
+                    var tmpl = $.templates(data.component); // Get compiled template
+                    var html = tmpl.render(data); // Render template using data - as HTML string
+                    $('#menu-header').append(html); // Insert HTML string into DOM
+                }else{
+                    console.error('ATENCIÓN:'+ result.msm);
+                }
+                
+                
+            }
+        });
+        
+    </script>
+
+    
+
+    <script type="text/javascript">
+
+function validatePassword(){
+    /*set password variable*/
+
+    var pswd = password.value;
+    /*validate the length*/
+    if (!$("#user_om_password").val().length >= 8 ) {
+        password.setCustomValidity("La contraseña debe tener como minímo 8 carácteres");
+    }else{
+        /*validate letter*/
+        if (!pswd.match(/[A-z]/) ) {
+            password.setCustomValidity("La contraseña debe tener una letra");
+        }else{
+             /*validate capital letter*/
+            if (!pswd.match(/[A-Z]/) ) {
+                password.setCustomValidity("La contraseña debe tener una letra en mayuscula");
+            }else{
+                /*validate number*/
+                if (!pswd.match(/\d/) ) {
+                    password.setCustomValidity("La contraseña debe tener un número");
+                }else{
+                     /*validamos que sean iguales*/
+                    if(password.value != confirm_password.value) {
+                        password.setCustomValidity("Las contraseñas no coinciden");
+                        confirm_password.setCustomValidity("Las contraseñas no coinciden");
+                    } else {
+                        password.setCustomValidity('');
+                        confirm_password.setCustomValidity('');
+                    }
+                }
+            } 
+        }
+    }
+   
+}
+
+
+    function Forms() {
+        $('#formularioContacto').submit(function( event ) {
+            event.preventDefault();
+            var form = this;
+            var post_url = $(this).attr("action"); 
+            var request_method = $(this).attr("method"); 
+            $.ajax({
+                url : post_url,
+                method: request_method,
+                data: new FormData(this),
+                contentType:false,
+                processData:false,
+            }).done(function(response){ 
+                if(response.tipoMsm == 'success'){
+                    $(form).trigger("reset");
+                    alert(response.mensaje);
+                }else{
+                    alert(response.mensaje);    
+                }  
+            });
+        });
+
+        $('#formularioContactoAgente').submit(function( event ) {
+            event.preventDefault();
+            var form = this;
+            var post_url = $(this).attr("action"); 
+            var request_method = $(this).attr("method"); 
+            $.ajax({
+                url : post_url,
+                method: request_method,
+                data: new FormData(this),
+                contentType:false,
+                processData:false,
+            }).done(function(response){ 
+                if(response.tipoMsm == 'success'){
+                    $(form).trigger("reset");
+                    alert(response.mensaje);
+                }else{
+                    alert(response.mensaje);    
+                }  
+            });
+        });
+    }
+
+    $('#form-tmk').submit(function( event ) {
+        event.preventDefault();
+        var form = this;
+        var post_url = $(this).attr("action"); 
+        var request_method = $(this).attr("method"); 
+        $.ajax({
+            url : post_url,
+            method: request_method,
+            data: new FormData(this),
+            contentType:false,
+            processData:false,
+        }).done(function(response){ 
+            if(response.tipoMsm == 'success'){
+                $(form).trigger("reset");
+                alert(response.mensaje);
+                Captcha();
+            }else{
+                alert(response.mensaje);    
+            }  
+        });
+        
+        
+    });
+</script>
+
+    
+
+    <!--div class="container-fluid p-0 m-0" id="footerOm">
+        <footer class="page-footer bg-dark p-0 m-0">
+            <div class="container text-white">
+                <div class="links text-white p-2 text-center "><i class="fa fa-sort-up mr-2"></i><a href="#headerOm" class="text-white js-scroll-trigger">Volver arriba</a><i class="fa fa-sort-up ml-2"></i></div>
+                <div class="social-icons d-none"><a class="text-dark" href="#"><i class="icon ion-social-facebook"></i></a><a class="text-dark" href="#"><i class="icon ion-social-instagram-outline"></i></a><a class="text-dark" href="#"><i class="icon ion-social-twitter"></i></a></div>
+            </div>
+            <div class="row p-0 m-0 p-3 bg-light">
+                <div class="col p-0 m-0  text-center">
+                    <p class="p-0 m-0 text-secondary" style="font-weight:300;">Todos los derechos reservados por BRM S.A.</p>
+                    <a href="politicas.html">
+                        <p class="p-0 m-0"><small>Políticas de privacidad</small></p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div-->
+
+    <script src="https://omolds.github.io/assets/js/jquery.easing.min.js"></script>

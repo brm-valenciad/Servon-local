@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ServOn - Cotizador TMK</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/clientes/bootstrapServOn.css?10">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/cssOmoldsMigracion.css?16">
+    <link rel="stylesheet" href="assets/css/calculadora.css">
+    <link rel="shortcut icon" href="https://omolds.github.io/assets/images/sitom/servon/favicon.png?2">
+    <link rel="stylesheet" type="text/css" href="css/calculadora.css" />
+</head>
+
+<body style="font-size: 0.9em;font-family: Montserrat, sans-serif;">
+    <div class="container-fluid p-0 m-0 fixed-top bg-white" id="headerOm">
+        <div class="row p-0 m-0">
+            <div class="col-lg-11 p-0 m-0 bg-white p-2"><a href="index.html"><img class="img-fluid mx-auto d-block" src="https://omolds.github.io/assets/images/sitom/servon/logoServon.png" style="height:85px;"></a></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light shadow">
+                    <div class="container-fluid"><button class="navbar-toggler mx-auto text-primary" data-toggle="collapse" data-target="#navcol-2"><a href="#"><i class="fa fa-bars"></i></a><span class="sr-only">Toggle navigation</span></button>
+                        <div class="collapse navbar-collapse"
+                            id="navcol-2">
+                            <ul class="nav navbar-nav mr-auto">
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">&nbsp; <strong>Inicio</strong> &nbsp;</a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link active" href="cotizadorTmk.html">&nbsp; <i class="fa fa-calculator"></i><strong>&nbsp;TMK &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="cotizadorInfra.html">&nbsp; <i class="fa fa-calculator"></i><strong>&nbsp;Infraestructura &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="tecnologia.html"><strong>&nbsp; Tecnología &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="formularioContacto.html"><strong>&nbsp; Contacto &nbsp;</strong></a></li>
+                            </ul>
+                            <ul class="nav navbar-nav d-none ml-auto" id="login">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="formulario.html" data-toggle="modal" data-target="#modalCrearCuenta">
+                                        <p class="p-0 m-0"><i class="fa fa-key"></i>&nbsp;Registro<br></p>
+                                    </a>
+                                </li>
+                                <li class="nav-item border-left" role="presentation">
+                                    <a class="nav-link" href="formulario.html" data-toggle="modal" data-target="#modalLogin">
+                                        <p class="p-0 m-0"><i class="fa fa-user-circle-o"></i>&nbsp;Login<br></p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav ml-auto" id="Usuario_registrado">
+                                <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle font-weight-bold" data-toggle="dropdown" aria-expanded="false" href="#"><strong>Bienvenido Cliente Default</strong></a>
+                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="loginHome.html">Administrador<p>de campañas</p></a><a class="dropdown-item d-flex justify-content-between align-items-center" role="presentation" href="#">Cerrar<i class="fa fa-close"></i></a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row p-0 m-0 d-none" id="totalFlotanteOm">
+            <div class="col p-0 m-0 bg-success">
+                <h3 class="text-center text-white p-0 m-0 p-3">TOTAL:&nbsp;$100.000.000 COP<br></h3>
+            </div>
+        </div>
+    </div>
+    <section id="banner_prin" class="mt-5 pt-5">
+        <div class="container-fluid">
+            <div class="row justify-content-center pt-5" style="background-image: url(&quot;https://servon.com.co/index/viewArchive/905/archivo_imagen&quot;);background-position: center;background-size: cover;background-repeat: no-repeat;">
+                <div class="col-xl-11">
+                    <div class="container">
+                        <div class="row p-0 m-0" style="background-size: cover;height: auto;background-repeat: no-repeat;background-position: bottom;">
+                            <div class="col-12 col-sm-12 col-md-9 col-lg-6 col-xl-7 p-0 m-0 pl-3">
+                                <h1 class="text-left text-white p-0 m-0 pt-3 pb-3 display-5" style="font-weight:bold;">GRANDES&nbsp;<br>SERVICIOS</h1>
+                                <p class="text-left text-white"><strong>Acceda a todos los servicios de su propio agente de Telemarketing </strong><span>(TMK)</span><strong>&nbsp;y personalice las campañas o configure la </strong><span>Infraestructura&nbsp;</span><strong>que necesita su operación y logre los resultados que desea, todo desde su computador o dispositivo móvil.&nbsp;</strong><br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="tmk-info" class="mt-3">
+        <div class="container-fluid bg-primary p-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-5 col-xl-4">
+                                <h3 class="text-center text-white"><i class="fa fa-users"></i>&nbsp;TMK AL INSTANTE</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-2 pb-2">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <p class="text-secondary">Contacte a toda su base de datos a&nbsp;través de agentes especializados, solo por el tiempo que requiera y para lo que necesite, somo expertos en los siguientes tipos de campañas:<br></p>
+                        </div>
+                        <div class="col pb-2"><img class="img-fluid" src="https://www.servon.com.co/index/viewArchive/16/archivo_imagen"></div>
+                        <div class="col-12 col-sm-12 col-md-6 col-xl-6 d-flex flex-column justify-content-between">
+                            <ul class="text-secondary" style="font-weight:300;">
+                                <li>Ventas</li>
+                                <li>Informativas</li>
+                                <li>Fidelización</li>
+                                <li>Confirmación de eventos</li>
+                                <li>Lanzamientos</li>
+                                <li>Actualización de datos</li>
+                                <li>Mistery shopper</li>
+                            </ul><a class="btn btn-primary btn-block text-white mt-3 mb-3" role="button" href="cotizadorTmk.html">CREAR MI COTIZACIÓN</a></div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h5 class="text-primary font-weight-bold">CONOCE MÁS ACERCA DE LOS SERVICIOS ADICIONALES:</h5>
+                        </div>
+                        <div class="col-12 mx-auto mt-2">
+                            <div>
+                                <ul class="nav nav-tabs nav-fill">
+                                    <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-3">Módulo Grabación</a></li>
+                                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-4">Módulo Calidad</a></li>
+                                    <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-1">Módulo Bolsa de comisión</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane fade text-black-50 p-3" role="tabpanel" id="tab-1">
+                                        <p class="text-justify" style="font-weight:300;">Motivar a la fuerza comercial: Los equipos ven este tipo de compensación variable como una oportunidad de crecimiento y ayuda a la motivación para alcanzar las metas mas retadoras.&nbsp;Define tu presupuesto y en
+                                            conjunto construimos las tablas mas eficientes</p>
+                                    </div>
+                                    <div class="tab-pane fade text-black-50 p-3" role="tabpanel" id="tab-2">
+                                        <p class="text-justify" style="font-weight:300;">El módulo supervisor es una herramienta de gestión online específicamente diseñada para Jefes de Servicio o Supervisores.<br><br>Permite implementar rápida y fácilmente reglas de negocio para llevar un control efectivo
+                                            de la operación, la herramienta se maneja mediante una interfaz altamente intuitiva y fácil de usar, incorpora un amplio rango de informes históricos y en tiempo real, proporcionando un control total de la gestión
+                                            de la plataforma Contact Center. <br><br>El módulo puede instalarse como aplicación de escritorio y como aplicación web, lo que permite la posibilidad de un monitoreo remoto en tiempo real.<br></p>
+                                    </div>
+                                    <div class="tab-pane fade show active text-black-50 p-3" role="tabpanel" id="tab-3">
+                                        <p class="text-justify" style="font-weight:300;">El módulo de grabación constituye una plataforma de grabación fácil de usar y mantener, que permite realizar grabaciones por requerimiento de calidad, como prueba contractual o requisito legal. La aplicación de
+                                            gestión dispone de una potente consola de búsqueda y reproducción de grabaciones que permite definir y memorizar filtros. <br><br>Estos filtros pueden incluir información de negocio relacionada con la llamada
+                                            o cliente gestionado de la siguiente manera: Las grabaciones puedan ser realizadas cuando sea necesarias, ya sean automatizadas bajo plan o activadas bajo demanda (lanzado manualmente por el agente o automáticamente
+                                            por una aplicación externa)El sistema garantiza que las grabaciones son almacenadas de forma segura y que esta seguridad se mantenga incluso si es almacenada en otros medios físicos (por ejemplo: cintas backup,
+                                            DVDs, etc.)<br><br>La solución dispone de un control de acceso a las grabaciones. Sólo el personal autorizado debe tener acceso a reproducir y/o exportar grabaciones.El módulo mantiene un registro detallado
+                                            de reproducción y exportación por parte de los usuarios autorizados.<br></p>
+                                    </div>
+                                    <div class="tab-pane fade text-black-50 p-3" role="tabpanel" id="tab-4" style="font-weight:300;">
+                                        <p style="font-weight:300;">La auditoria les proporciona análisis, evaluaciones, recomendaciones, asesoría e información concerniente a las actividades revisadas.<br></p>
+                                        <ul class="list-group">
+                                            <li class="list-group-item"><span style="font-weight:300;">Verificar las condiciones de la operación y los procesos que siguen los agentes.</span></li>
+                                            <li class="list-group-item"><span style="font-weight:300;">Verificar las metodologías para brindar la información y el registro de los interacciones en el sistema.</span></li>
+                                            <li class="list-group-item"><span style="font-weight:300;">Verificar que las interacciones realizadas estén bajo los parámetros establecidos por cada cliente y así evitar reclamaciones.&nbsp;</span></li>
+                                            <li class="list-group-item" style="font-weight:300;"><span>El enfoque del área de auditoría está diseñado para alcanzar los requisitos y objetivos de la operación, del cliente y del usuario final.&nbsp;</span></li>
+                                            <li class="list-group-item" style="font-weight:300;"><span>Debe garantizar la correcta ejecución de los procesos, apuntando al cumplimiento de los KPIs establecidos para FCR, RUN, Contact Rate, Ventas y rentabilidad.</span></li>
+                                        </ul>
+                                        <h3 class="text-primary bg-light p-3">Puntos auditables</h3>
+                                        <ul>
+                                            <li>Calificación dada al registro en la llamada.<br></li>
+                                            <li>Ingreso de información al sistema.<br></li>
+                                            <li>Captura de datos requeridos.<br></li>
+                                            <li>Manejo de objeciones.<br></li>
+                                            <li>Conocimiento de la campaña.<br></li>
+                                            <li>Suministro de información al cliente.<br></li>
+                                            <li>Búsqueda de datos de contacto adicionales.<br></li>
+                                            <li>Seguimiento de guión.<br></li>
+                                            <li>Lenguaje apropiado.<br></li>
+                                            <li>Trato al cliente.<br></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="calculadora" class="mb-4">
+        <div class="container-fluid">
+            <div class="row bg-primary p-3">
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="text-white font-weight-bold">¿CUANTOS TMK NECESITA?</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row bg-success p-3">
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-white p-0 m-0" style="font-weight:300;">A través de este cotizador podrá realizar el cálculo con tipo de servicio que requiera según su necesidad. Para más información consulte el ícono de interrogación&nbsp;<i class="fa fa-question-circle text-primary"></i>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form class="row calculator">
+                <div class="form-row justify-content-center calculator mt-4 p-2 pt-5 pb-5" style="border: 1px solid rgb(204,201,201);border-radius: 1%;">
+                    <div class="col-xl-11">
+                        <div class="form-row module">
+                            <div class="col-md-4 col-xl-4"><div class="form-group">
+                            	<label class="text-primary">Tipo de servicio:</label>
+                            		<select class="form-control outline">
+                            				<option value="Actualización de datos">Actualización de datos</option>
+                            		</select>
+                            </div>
+                    </div>
+                            <div class="col-md-4 col-xl-4"><div class="form-group">
+						<label class="text-primary">Numero de personas a Llamar:</label>
+						<input type="text" class="form-control outline" id="" placeholder="#1.000"/>
+					</div></div>
+                            <div class="col-md-4 col-xl-4"><div class="form-group">
+						<label class="text-primary">Duración de llamada:</label>
+						<input type="text" class="form-control outline" id="" placeholder="15.min"/>
+					</div></div>
+                            <div class="col-md-6 col-xl-6"><div class="form-group">
+						<label class="text-primary">Inicio del servicio:</label>
+						<input type="date" class="form-control outline" id="start-date"/>
+</div></div>
+                            <div class="col-md-6 col-xl-6"><div class="form-group">
+						<label class="text-primary">Final del servicio:</label>
+						<input type="date" class="form-control outline" id="end-date"/>
+					</div></div>
+                            <div class="col-md-12 col-lg-6 col-xl-6 align-self-center p-0" style="background-color: rgb(246,246,246);"><div class="summary summary-hours">
+						<div class="item-circle"> 30 </div>
+							<h5><b>Días</b> dentro del Rango. </h5>
+					</div></div>
+                            <div class="col-md-12 col-lg-6 col-xl-6 p-0"><div class="summary summary-hours">
+						<div class="item-circle"> 4,3 </div>
+							<h5><b>Semanas</b> Dentro Del Rango. </h5>
+					</div></div>
+                        </div>
+                        <div class="form-row module mt-4">
+                            <div class="col-lg-6 col-xl-6"><div class="form-group">
+				<label>Zona Horaria:</label>
+					<select class="form-control outline">
+						 <option value="GMT-5:00 - America/Bogota - COT - Hora de Colombia" selected>
+						 	GMT-5:00 - America/Bogota - COT - Hora de Colombia
+						 </option>
+					</select>
+			</div></div>
+                            <div class="col-lg-6 col-xl-6"><div class="form-group">
+				<label>Jornada laboral:</label>
+					<select class="form-control outline">
+					 	<option value="" selected>
+					 		6:00am a 2:00pm
+					 	</option>
+					</select>
+			</div></div>
+                            <div class="col-xl-12"><div class="checkbox">
+			    <label style="font-weight:200;font-size:12px;"><input type="checkbox"> 
+			    	<span style="margin-top:1px;display:inline-block;">Crear una jornada personalizada. </span>
+			    </label>
+			  </div></div>
+                            <div class="col-xl-6 p-0"><div class="form-group customs-chedule">
+					<label>Fin de Jornada:</label>
+					<div class="inline-form">
+						<div class="box-icon">
+							<i class="far fa-clock"></i>
+						</div>
+						<input type="tel" class="form-control" placeholder="Horas" class="col-xs-5"/>
+						<input type="tel" class="form-control" placeholder="Minutos" class="col-xs-5"/>
+						<div class="time-cycles day">
+							<i class="fas fa-cloud"></i>
+							<span>AM</span>
+						</div>
+					</div>
+				</div></div>
+                            <div class="col-xl-6 p-0"><div class="form-group customs-chedule">
+					<label>Inicio de Jornada:</label>
+					<div class="inline-form">
+						<div class="box-icon">
+							<i class="far fa-clock"></i>
+						</div>
+						<input type="tel" class="form-control" placeholder="Horas" class="col-xs-5"/>
+						<input type="tel" class="form-control" placeholder="Minutos" class="col-xs-5"/>
+						<div class="time-cycles night">
+							<i class="fas fa-moon"></i>
+							<span>PM</span>
+						</div>
+					</div>
+				</div></div>
+                            <div class="col-xl-12 p-0"><div class="summary summary-hours">
+					<div class="item-circle"> 8 </div>
+						<h5><b>Horas</b> de Gestión Diarias. </h5>
+				</div></div>
+                        </div>
+                        <div class="form-row module mt-4">
+                            <div class="col-xl-12">
+                                <p class="text-primary p-0">Días de actividad:</p>
+                            </div>
+                            <div class="col-xl-12"><ul class="listDays">
+					<li class="day active">
+						<span class="icon">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="title">Lunes</span>
+					</li>
+
+					<li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Martes</span>
+					</li>
+
+					<li class="day active">
+						<span class="icon">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="title">Miercoles</span>
+					</li>
+
+					 <li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Jueves</span>
+					</li>
+
+					 <li class="day active">
+						<span class="icon">
+							<i class="fas fa-check"></i>
+						</span>
+						<span class="title">Viernes</span>
+					</li>
+
+					<li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Sábado</span>
+					</li>
+
+					<li class="day">
+						<span class="icon">
+							<i class="fas fa-times"></i>
+						</span>
+						<span class="title">Domingo</span>
+					 </li>
+				</ul></div>
+                            <div class="col-12 col-lg-4 col-xl-4 p-0" style="font-size: 0.8em;"><div class="summary">
+				<div class="item-circle"> 8 </div>
+				<h6><b>Días Totales</b> para la Gestión. </h6>
+			</div></div>
+                            <div class="col-12 col-lg-4 col-xl-4 p-0"><div class="summary">
+				<div class="item-circle"> 3 </div>
+					<h6><b>Días</b> de gestión por semana. </h6>
+			</div></div>
+                            <div class="col p-0"><div class="summary">
+				<div class="item-circle small-font"> 244 </div>
+					<h6><b>Horas</b> para realizar la gestión. </h6>
+			</div></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+    <div class="container" id="contentOm" style="font-weight:300;">
+        <section class="text-secondary mb-4">
+            <form class="p-0 m-0">
+                <div class="modal fade" role="dialog" tabindex="-1" id="modalEjemplo">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body"><img class="img-fluid" src="https://www.servon.com.co/index/viewArchive/811/archivo_imagen"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row d-none p-0 m-0 border">
+                    <div class="col-12 col-lg-4 col-xl-4 p-3 m-0">
+                        <div class="form-group"><label class="text-primary"><strong>Tipo de servicio:&nbsp;</strong></label><select class="form-control text-secondary"><option value="12" selected="">Elija el servicio</option><option value="13">Lanzamientos</option><option value="14">Ventas</option><option value="15">Informativas</option><option value="16">Fidelización</option><option value="17">Confirmación de eventos</option><option value="18">Actualización de datos</option></select></div>
+                        <div
+                            class="form-group"><label class="text-primary"><strong>Tamaño de la Base de Datos:&nbsp;</strong></label><a href="#" data-toggle="tooltip" data-placement="top" title="Aquí se define la cantidad de personas (registros) los cuales quiere contactar. Recuerde que mínimo son 20 registros y 10mm registros. Los registros su base de datos deben cumplir todas las políticas de Habeas Data."><i class="fa fa-question-circle text-primary text-right"></i></a>
+                            <input
+                                class="form-control" type="number" required="" placeholder="Ejemplo: 5.000" min="20" max="10000000"></div>
+                    <div class="form-group"><label class="text-primary"><strong>Tiempo de la llamada:&nbsp;</strong></label><a href="#" data-toggle="tooltip" data-placement="top" title="Tenga en cuenta que el promedio de cualquier llamada tiene asociados tiempos estandar como los son el saludo, resoluciones, tiempo muerto, etc. El  rango de tiempo puede ir de 5 mins a 1 hora."><i class="fa fa-question-circle text-primary text-right"></i></a>
+                        <select
+                            class="form-control mb-2 text-secondary">
+                            <option value="12" selected="">02:00</option>
+                            <option value="13">02:10</option>
+                            </select><a class="text-dark" target="_blank" data-toggle="modal" data-target="#modalEjemplo"><strong>ver ejemplo</strong></a></div>
+                </div>
+                <div class="col-lg-4 col-xl-4 p-0 m-0 p-3">
+                    <div class="form-group"><label class="text-primary"><strong>Fecha inicial de la llamada:&nbsp;</strong></label><input class="form-control text-secondary" type="date" name="FechaInicio"></div>
+                    <div class="form-group"><label class="text-primary"><strong>Fecha final de la llamada:&nbsp;</strong></label><input class="form-control text-secondary" type="date" name="FechaInicio"></div>
+                    <div class="form-group"><label class="text-primary"><strong>Inicio de la jornada:&nbsp;</strong></label><select class="form-control text-secondary"><option value="12" selected="">Elija el tiempo</option><option value="18">02:00 am</option></select></div>
+                    <div
+                        class="form-group"><label class="text-primary"><strong>Fin de la jornada:&nbsp;</strong></label><select class="form-control text-secondary"><option value="12" selected="">Elija el tiempo</option><option value="18">02:00 am</option></select></div>
+    </div>
+    <div class="col-lg-4 col-xl-4 p-0 m-0 p-3">
+        <div class="form-group"><label class="text-primary"><strong>Zona horaria:&nbsp;</strong></label><select class="form-control text-secondary"><option value="12" selected="">Elija su zona horaria</option><option value="13">(UTC-05:00) Bogota, Lima, Quito</option></select></div>
+        <div
+            class="form-group"><label class="text-primary"><strong>Días de las llamadas:&nbsp;</strong></label>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Todos los días</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Lunes</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Martes</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Miercoles</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Jueves</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Viernes</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Sábado</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Domingo</label></div>
+    </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-6 p-0 m-0 mx-auto text-secondary border">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr class="bg-dark text-white">
+                        <th>MÓDULOS</th>
+                        <th class="text-center">AGREGAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="justify-content-center">Adicionar <strong>BOLSA DE COMISIÓN&nbsp;</strong><a href="#" data-toggle="tooltip" data-placement="top" title="Motivar a la fuerza comercial: Los equipos ven este tipo de compensación variable como una oportunidad de crecimiento"><i class="fa fa-question-circle text-primary text-right"></i></a></td>
+                        <td
+                            class="mx-auto d-block text-center"><input class="form-control mx-auto" type="number" placeholder="Ingrese un valor"></td>
+                    </tr>
+                    <tr>
+                        <td>Adicionar <strong>GRABACIÓN</strong>&nbsp;<a href="#" title="Plataforma de grabación fácil de usar y mantener." data-placement="top" data-toggle="tooltip"><i class="fa fa-question-circle text-primary text-right"></i></a></td>
+                        <td
+                            class="mx-auto d-block text-center"><button class="btn btn-primary btn-block text-white" type="button">ACTIVADO</button></td>
+                    </tr>
+                    <tr>
+                        <td>Adicionar <strong>CALIDAD&nbsp;</strong><a href="#" data-toggle="tooltip" data-placement="top" title="La auditoria les proporciona análisis, evaluaciones, recomendaciones, asesoría e información concerniente a las actividades revisadas."><i class="fa fa-question-circle text-primary text-right"></i></a></td>
+                        <td
+                            class="mx-auto d-block text-center"><button class="btn btn-secondary btn-block text-white" type="button" disabled="disabled">INACTIVO</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <div class="form-row p-0 m-0 d-none">
+        <div class="col p-0 m-0 p-4"><button class="btn btn-danger btn-block btn-lg p-4" type="button">QUITAR SERVICIO&nbsp;<i class="fa fa-minus-circle text-primary"></i></button></div>
+    </div>
+    </form>
+    </section>
+    </div>
+
+
+
+
+
+
+    <div class="container-fluid">
+        <div class="row bg-success">
+            <div class="col">
+                <div class="container">
+                    <div class="row p-0 m-0">
+                        <div class="col-xl-12 p-0 m-0 pt-3 pb-3 bg-success">
+                            <h4 class="text-center text-white p-0 m-0">TOTAL INVERSIÓN<br></h4>
+                            <h1 class="text-center text-white">$280.000.000 COP</h1><small class="text-white d-block text-center p-2"><input type="checkbox">&nbsp;*<a href="https://www.servon.com.co/files/servon.com.co/NbA2quIQDXf1OcEipBh7_35.docx">Aplican condiciones y restricciones</a>, precios no incluyen impuestos, el valor esta en pesos colombianos,&nbsp;</small></div>
+                        <div
+                            class="col-xl-12">
+                            <div class="row text-white" style="font-size: 0.8em;">
+                                <div class="col-xl-12 bg-info p-3 mb-2">
+                                    <h5 class="text-white p-0 m-0">Resumen de cotización&nbsp;<span>$puesto 1</span></h5>
+                                </div>
+                                <div class="col-sm-12 col-lg-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Tipo de servicio:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Número de personas a llamar</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-sm-6 col-lg-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Duración de la llamada:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Inicio del servicio:</p>
+                                    <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                    <p class="m-0 p-0">Final del servicio:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Zona horaría:</p>
+                                    <h5 class="m-0 p-0 mb-3">$Variable</h5>
+                                    <p class="m-0 p-0">Jornada laboral:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-lg-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Días de actividad:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-md-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Adicionar Bolsa de comisión:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Adicionar Grabación:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-xl-4 mb-4">
+                                    <p class="m-0 p-0">Adicionar Calidad:</p>
+                                    <h5 class="m-0 p-0">$Variable</h5>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center bg-primary p-2">
+                                <div class="col-sm-12 col-lg-7 col-xl-7 align-self-center">
+                                    <h2 class="text-center text-white">$280.000.000 COP</h2>
+                                </div>
+                                <div class="col"><button class="btn btn-info btn-lg mx-auto d-block w-75" type="button">IR A PAGAR</button></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    
+    <div class="row p-3 m-0 mx-auto" id="mediosOm">
+        <div class="col-12 col-lg-7 col-xl-10 mx-auto d-block">
+            <p class="text-center p-0 m-0 text-secondary p-2">Recibimos los siguientes medios de pago:</p>
+        </div>
+        <div class="col-lg-6 col-xl-4 mx-auto d-block">
+            <div class="row">
+                <div class="col-3 p-0 m-0 mx-auto text-center"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/903/archivo_imagen"></div>
+                <div class="col-3 p-0 m-0 mx-auto"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/904/archivo_imagen"></div>
+                <div class="col-3 p-0 m-0 mx-auto"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/37/archivo_imagen"></div>
+                <div class="col-3 p-0 m-0 mx-auto"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/81/archivo_imagen"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-0 m-0" id="footerOm">
+        <footer class="page-footer bg-dark p-0 m-0">
+            <div class="row p-0 m-0 p-3 bg-light">
+                <div class="col p-0 m-0">
+                    <p class="p-0 m-0 text-secondary" style="font-weight:300;">Todos los derechos reservados por BRM S.A.</p>
+                    <a href="politicas.html">
+                        <p class="p-0 m-0"><small>Políticas de privacidad</small></p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="Modales">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modalLogin">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-primary"><i class="fa fa-edit"></i>&nbsp;ZONA DE ACCESO</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12 padMar">
+                                <p class="text-secondary p-0 m-0 p-2">Para acceder a nuestros productos debes estar inscrito en nuestro sitio web.</p>
+                            </div>
+                            <div class="col">
+                                <form method="post" class="p-4">
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Correo electrónico"></div>
+                                    <div class="form-group"><input class="form-control outline" type="password" name="password" placeholder="Contraseña"></div>
+                                    <div class="form-group"><a class="btn btn-primary btn-block" role="button" href="loginHome.html">ENVIAR</a></div>
+                                    <div class="form-check pb-2"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label text-left" for="formCheck-1">Recordarme</label></div><a href="#">¿Olvidaste tu contraseña?</a></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modalCrearCuenta">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-primary"><i class="fa fa-edit"></i>&nbsp;CREAR CUENTA</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12 padMar">
+                                <p class="text-secondary p-0 m-0 p-2">Diligencia los datos para la creación de cuenta y acceder a los servicios de Servon.</p>
+                            </div>
+                            <div class="col">
+                                <form method="post" class="p-4">
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Nombres"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Apellidos"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Cédula"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Celular"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Correo electrónico"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Crear contraseña"></div>
+                                    <div class="form-group"><input class="form-control outline" type="password" name="password" placeholder="Repetir contraseña"></div>
+                                    <div class="form-group"><a class="btn btn-primary btn-block text-white" role="button" href="loginHome.html">&nbsp;CREAR CUENTA</a></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://omolds.github.io/assets/js/jquery.easing.min.js"></script>
+    <script src="https://omolds.github.io/assets/js/scrolling-nav.js"></script>
+    <script src="https://omolds.github.io/assets/js/functionsOmolds.js"></script>
+</body>
+
+</html>

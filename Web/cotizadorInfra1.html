@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ServOn - Cotizador de infraestructura</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/clientes/bootstrapServOn.css?10">
+    <link rel="stylesheet" href="https://omolds.github.io/assets/css/cssOmoldsMigracion.css?16">
+    <link rel="stylesheet" href="assets/css/calculadora.css">
+<link rel="shortcut icon" href="https://omolds.github.io/assets/images/sitom/servon/favicon.png?2">
+</head>
+
+<body style="font-size: 0.9em;font-family: Montserrat, sans-serif;">
+    <div class="container-fluid p-0 m-0 fixed-top bg-white" id="headerOm">
+        <div class="row p-0 m-0">
+            <div class="col-lg-11 p-0 m-0 bg-white p-2"><a href="index.html"><img class="img-fluid mx-auto d-block" src="https://omolds.github.io/assets/images/sitom/servon/logoServon.png" style="height:85px;"></a></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light shadow">
+                    <div class="container-fluid"><button class="navbar-toggler mx-auto text-primary" data-toggle="collapse" data-target="#navcol-2"><a href="#"><i class="fa fa-bars"></i></a><span class="sr-only">Toggle navigation</span></button>
+                        <div class="collapse navbar-collapse"
+                            id="navcol-2">
+                            <ul class="nav navbar-nav mr-auto">
+                                <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">&nbsp; <strong>Inicio</strong> &nbsp;</a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="cotizadorTmk.html">&nbsp; <i class="fa fa-calculator"></i><strong>&nbsp;TMK &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link active" href="cotizadorInfra.html">&nbsp; <i class="fa fa-calculator"></i><strong>&nbsp;Infraestructura &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="tecnologia.html"><strong>&nbsp; Tecnología &nbsp;</strong></a></li>
+                                <li class="nav-item border-left" role="presentation"><a class="nav-link" href="formularioContacto.html"><strong>&nbsp; Contacto &nbsp;</strong></a></li>
+                            </ul>
+                            <ul class="nav navbar-nav d-none ml-auto" id="login">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="formulario.html" data-toggle="modal" data-target="#modalCrearCuenta">
+                                        <p class="p-0 m-0"><i class="fa fa-key"></i>&nbsp;Registro<br></p>
+                                    </a>
+                                </li>
+                                <li class="nav-item border-left" role="presentation">
+                                    <a class="nav-link" href="formulario.html" data-toggle="modal" data-target="#modalLogin">
+                                        <p class="p-0 m-0"><i class="fa fa-user-circle-o"></i>&nbsp;Login<br></p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav ml-auto" id="Usuario_registrado">
+                                <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle font-weight-bold" data-toggle="dropdown" aria-expanded="false" href="#"><strong>Bienvenido Cliente Default</strong></a>
+                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="loginHome.html">Administrador<p>de campañas</p></a><a class="dropdown-item d-flex justify-content-between align-items-center" role="presentation" href="#">Cerrar<i class="fa fa-close"></i></a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row p-0 m-0 d-none" id="totalFlotanteOm">
+            <div class="col p-0 m-0 bg-success">
+                <h3 class="text-center text-white p-0 m-0 p-3">TOTAL:&nbsp;$100.000.000 COP<br></h3>
+            </div>
+        </div>
+    </div>
+
+
+
+    <section id="banner_prin" class="mt-5 pt-5">
+        <div class="container-fluid">
+            <div class="row justify-content-center pt-5" style="background-image: url(&quot;https://servon.com.co/index/viewArchive/905/archivo_imagen&quot;);background-position: center;background-size: cover;background-repeat: no-repeat;">
+                <div class="col-xl-11">
+                    <div class="container">
+                        <div class="row p-0 m-0" style="background-size: cover;height: auto;background-repeat: no-repeat;background-position: bottom;">
+                            <div class="col-12 col-sm-12 col-md-9 col-lg-6 col-xl-7 p-0 m-0 pl-3">
+                                <h1 class="text-left text-white p-0 m-0 pt-3 pb-3 display-5" style="font-weight:bold;">GRANDES&nbsp;<br>SERVICIOS</h1>
+                                <p class="text-left text-white"><strong>Acceda a todos los servicios de su propio agente de Telemarketing </strong><span>(TMK)</span><strong>&nbsp;y personalice las campañas o configure la </strong><span>Infraestructura&nbsp;</span><strong>que necesita su operación y logre los resultados que desea, todo desde su computador o dispositivo móvil.&nbsp;</strong><br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="infraestructura" class="mt-3">
+        <div class="container-fluid bg-primary p-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-5 col-xl-4">
+                                <h3 class="text-center text-white"><i class="fa fa-users"></i>&nbsp;INFRAESTRUCTURA</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-2 pb-2">
+            <div class="row justify-content-center">
+                <div class="col-xl-11">
+                    <div class="row">
+                        <div class="col-xl-12 pb-3">
+                            <p class="text-secondary">Computadores, diademas, software especializado, CRM, centro de datos, red regulada, salas de<br>reunión y de capacitación, ensamble las posiciones como quiera.<br></p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h6 class="text-primary pb-2">NUESTROS PUESTOS DE TRABAJO INCLUYEN:</h6>
+                            <p class="text-left text-secondary p-0 m-0" style="font-weight:300;"><i class="fa fa-play text-primary"></i>&nbsp;Equipo de cómputo, discos, memorias y procesadores a demanda al igual sistema operativo.<br><i class="fa fa-play text-primary"></i>&nbsp;Diadema<br><i class="fa fa-play text-primary"></i>&nbsp;Licencias
+                                Microsoft Office<br><i class="fa fa-play text-primary"></i>&nbsp;Escritorio con o sin cajonera<br><i class="fa fa-play text-primary"></i>&nbsp;Silla ergonómica<br><br></p>
+                            <p class="text-left text-black-50 p-0 m-0"><strong>Todos los items pueden ser modificados según su preferencia.</strong><br></p>
+                        </div>
+                        <div class="col">
+                            <p class="text-left text-secondary p-0 m-0" style="font-weight:300;"><br><i class="fa fa-play text-primary"></i>&nbsp;Internet alta velocidad<br><i class="fa fa-play text-primary"></i>&nbsp;Solución de marcación<br><i class="fa fa-play text-primary"></i>&nbsp;Soporte IT<br><i class="fa fa-play text-primary"></i>&nbsp;Centro
+                                de copiado e impresión<br><i class="fa fa-play text-primary"></i>&nbsp;Materiales de oficina<br><i class="fa fa-play text-primary"></i>&nbsp;Recepción, gestión de correo y paquetería<br><i class="fa fa-play text-primary"></i>&nbsp;Actividades
+                                de bienestar &amp; Salud Ocupacional<br><i class="fa fa-play text-primary"></i>&nbsp;Agua fresca filtrada<br><i class="fa fa-play text-primary"></i>&nbsp;Seguridad<br><i class="fa fa-play text-primary"></i>&nbsp;Limpieza
+                                diaria<br><br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <section id="calculadora-infra">
+        <div class="container-fluid">
+            <div class="row bg-primary p-3">
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h3 class="text-white font-weight-bold">CALCULE SU INFRAESTRUCTURA</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row bg-success p-3">
+                <div class="col">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-white p-0 m-0">Ensamble la cantidad de puestos que necesita segun su necesidad y conozcalos aquí&nbsp;<br></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-lg-4 col-xl-5 align-self-center">
+                    <p class="text-muted m-0 p-0">Seleccione la sede en la cual desea alquilar su infraestructura.</p>
+                </div>
+                <div class="col align-self-center">
+                    <form>
+                        <div class="form-group m-0 p-0"><select class="form-control outline"><optgroup label="SEDES"></optgroup><optgroup label="Bogotá D.C."><option value="villas">BRM CDO Carrera 58 B # 130A - 13 (Ciudad Jardin Norte)</option></optgroup><optgroup label="BRM Dirección CRA 19B N 85-33"></optgroup></select></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="contentOm" style="font-weight:300;">
+            <div class="modal fade" role="dialog" tabindex="-1" id="modalPuestos">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">DESCRIPCIÓN DE PUESTOS</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                        <div class="modal-body">
+                            <p>Conozca los diferentes tipos de puestos que puede adquirir para su operación, elija cuál se acomoda mejor a sus necesidades.&nbsp;</p>
+                            <div role="tablist" id="accordion-1">
+                                <div class="card">
+                                    <div class="card-header" role="tab">
+                                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="div#accordion-1 .item-1">Puesto tipo TMK Telemercaderista</a></h5>
+                                    </div>
+                                    <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1">
+                                        <div class="card-body"><img class="img-fluid pb-3" src="https://www.servon.com.co/index/viewArchive/0/archivo_imagen/550/250">
+                                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" role="tab">
+                                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-2" href="div#accordion-1 .item-2">Oficina Tipo Gerente</a></h5>
+                                    </div>
+                                    <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-1">
+                                        <div class="card-body"><img class="img-fluid pb-3" src="https://www.servon.com.co/index/viewArchive/0/archivo_imagen/550/250">
+                                            <p class="card-text"><strong class="font-weight-bold">PUESTO</strong><br><br>Oficina Cerrada de mínimo 3.5 x 3.5 mts. Con escritorio en “L” y mide mínimo 1.40 mts. de longitud y mínimo 70 cm. de profundidad; El espacio de trabajo
+                                                permití ubicar el mouse, teclado<br><br><strong class="font-weight-bold">SILLA</strong><br><br>Ergonómica giratoria, con brazos, espaldar medio ajustable en altura y profundidad, contacto permanente, elevación
+                                                neumática, tapizada en paño.<br><br><strong class="font-weight-bold">ADICIONALES</strong><br><br>Cada puesto cuenta con un archivador metálico con 2 cajones y espacio de archivo con cerradura, Adicional
+                                                a la silla de la persona que ocupa el puesto éste incluye 2 silla ergonómicas,&nbsp; espaldar medio, contacto permanente.<br>Tablero acrílico, marcadores y borrador Teléfono hardphone con altavoz. &nbsp;
+                                                &nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" role="tab">
+                                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-3" href="div#accordion-1 .item-3">Puesto tipo Jefe</a></h5>
+                                    </div>
+                                    <div class="collapse item-3" role="tabpanel" data-parent="#accordion-1">
+                                        <div class="card-body"><img class="img-fluid pb-3" src="https://www.servon.com.co/index/viewArchive/0/archivo_imagen/550/250">
+                                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" role="tab">
+                                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-4" href="div#accordion-1 .item-4">Puesto tipo Coordinador</a></h5>
+                                    </div>
+                                    <div class="collapse item-4" role="tabpanel" data-parent="#accordion-1">
+                                        <div class="card-body"><img class="img-fluid pb-3" src="https://www.servon.com.co/index/viewArchive/0/archivo_imagen/550/250">
+                                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" role="tab">
+                                        <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-5" href="div#accordion-1 .item-5">Puesto tipo Analista</a></h5>
+                                    </div>
+                                    <div class="collapse item-5" role="tabpanel" data-parent="#accordion-1">
+                                        <div class="card-body"><img class="img-fluid pb-3" src="https://www.servon.com.co/index/viewArchive/0/archivo_imagen/550/250">
+                                            <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="formOm" class="bg-light mt-4 calculator" style="border: 1px solid rgba(34,34,34,0.14);border-radius: 1%;">
+                <form class="module">
+                    <div class="form-row p-3 m-0" id="tiempoOm">
+                        <div class="col-12 pt-2 pb-2 m-0">
+                            <h4 class="text-left text-primary p-0 m-0">Tiempo de renta:<button class="btn btn-primary text-white pull-right" type="button"><i class="fa fa-minus-circle text-white"></i></button></h4>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Fecha de inicio:&nbsp;</strong></label><a href="#" data-toggle="tooltip" data-placement="top" title="Su infraestructura estará disponible 24 horas después de realizada la reserva"><i class="fa fa-question-circle text-primary text-right"></i></a>
+                                <input
+                                    class="form-control p-3 m-0 text-secondary outline bg-light" type="date"></div>
+                            <div class="d-flex flex-column align-items-center flex-md-row flex-lg-row flex-xl-row p-0 m-0"></div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2">Periodo de tiempo:&nbsp;</label><a href="#" data-toggle="tooltip" data-placement="top" title="Escoja el rango de tiempo que más se ajuste a sus necesidades"><i class="fa fa-question-circle text-primary text-right"></i></a>
+                                <select
+                                    class="form-control p-2 m-0 text-secondary outline bg-light">
+                                    <option value="12" selected="">Elija el periodo</option>
+                                    <option value="14">Mes</option>
+                                    <option value="15">Día</option>
+                                    <option value="13">12 horas</option>
+                                    </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Cantidad de periodos:&nbsp;</strong></label><a href="#" data-toggle="tooltip" data-placement="top" title="Ejemplo: 30 periodos de DÍA = 1 periodo de MES"><i class="fa fa-question-circle text-primary text-right"></i></a>
+                                <input
+                                    class="form-control p-2 m-0 outline bg-light" type="number" placeholder="Defina # periodos"></div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Fecha final:&nbsp;</strong></label><input class="form-control border-0 mb-1 outline" type="number" readonly="" placeholder="Fecha final"></div>
+                        </div>
+                    </div>
+                    <div class="form-row p-3 m-0" id="puestosOm" style="background-color: rgba(114,193,202,0.8);">
+                        <div class="col-12 col-sm-12 col-lg-6 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-white pt-2">Puesto de trabajo:</label><select class="form-control text-secondary"><option value="12" selected="">Tipo de puesto</option><option value="13">Puesto Tipo TMK Telemercaderista</option><option value="14">Oficina Tipo Gerente</option><option value="15">Puesto Tipo Jefe </option><option value="16">Puesto Tipo Coordinador</option><option value="17">Puesto Tipo Analista</option></select>
+                                <label
+                                    class="text-white pt-2">Cantidad de puestos:</label><input class="form-control mb-3" type="number" placeholder="Defina la cantidad"></div>
+                        </div>
+                        <div class="col-sm-6 pr-2 pl-2 m-0 d-none d-lg-block">
+                            <div class="form-group"><label class="text-white">Valor Unitario:</label><input class="form-control border-0 mb-3" type="number" readonly="" placeholder="$Unitario"><label class="text-white">Total:</label><input class="form-control border-0 mb-3"
+                                    type="number" readonly="" placeholder="$Total"></div>
+                        </div>
+                    </div>
+                    <div class="form-row p-3 m-0" id="DescripcionpuestosOm" style="background-color: rgba(114,193,202,0.8);">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 pr-2 pl-2 m-0">
+                            <div id="tipoDePuesto">
+                                <h5 class="text-white font-weight-bold">Puesto tipo TMK Telemercaderista<br></h5><img class="img-fluid pb-3" src="https://www.servon.com.co/index/viewArchive/859/archivo_imagen"></div>
+                        </div>
+                        <div class="col-sm-12 col-lg-6 pr-2 pl-2 m-0">
+                            <p class="text-white card-text"><strong>PUESTO</strong><br><br>El puesto cuenta con dos paneles laterales de mínimo de 1.52 x 1.22 mts y un panel posterior de mínimo 1.31 x 1.04 mts. La superficie de trabajo es de mínimo de 75 cm x 1.00 mts Los paneles también
+                                pueden ser de menor tamaño si así se requiere. El espacio de trabajo permite ubicar el mouse, teclado.<br><br><strong>SILLA</strong><br><br>Ergonómica giratoria, con brazos, espaldar medio ajustable en altura y profundidad,
+                                contacto permanente, elevación neumática, tapizada en paño.<br><br><strong>ADICIONALES</strong><br><br>El puesto tiene asignado un casillero o locker individual con cerradura o la opción de colocar candado. Estos están
+                                ubicados dentro del perímetro del SITE y así mismo son resguardados por sistema de seguridad visual (cámaras).</p>
+                        </div>
+                    </div>
+                    <div class="form-row p-3 m-0 d-md-block d-lg-none" id="puestosOm" style="background-color: rgba(114,193,202,0.8);">
+                        <div class="col-sm-12 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-white">Valor Unitario:</label><input class="form-control border-0 mb-3" type="number" readonly="" placeholder="$Unitario"><label class="text-white">Total:</label><input class="form-control border-0 mb-3"
+                                    type="number" readonly="" placeholder="$Total"></div>
+                        </div>
+                    </div>
+                    <div class="form-row p-3 m-0" id="especificasOm">
+                        <div class="col-md-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Equipo de computo:</strong></label><select class="form-control mb-1 text-secondary outline bg-light"><option value="12" selected="">Elija el servicio</option><option value="13">CPU CORE I3 2G DE 3.1 GHZ Monitor 17"</option><option value="14">CPU CORE I5 3G DE 2.9 GHZ Monitor 21"</option><option value="15">CPU CORE I7 3G DE 3.4 GHZ Monitor 21"</option><option value="16">EQUIPO MAC CORE I5 DE 2.7 GHZ Monitor I21,5"</option><option value="17">PORTATIL CORE I5 6G DE 2.3 GHZ</option><option value="18">PORTATIL CORE I7 6G DE 2.5 GHZ</option><option value="19">PORTÁTIL MAC CORE I5 5G DE 1.8 GHZ DE 13"</option></select>
+                                <input
+                                    class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Unitario"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Total"></div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Tipo de licencias:</strong></label><select class="form-control mb-1 text-secondary outline bg-light"><option value="12" selected="">Elija el servicio</option><option value="13">Office Estándar</option><option value="14">Office Profesional</option><option value="15">Office Estándar + Paquete Diseño (Photoshop, Illustrator, Audition, Premiere, After Efects, Dreamweaver)</option></select>
+                                <input
+                                    class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Unitario"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Total"></div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Tipo de diadema:</strong></label><select class="form-control mb-1 text-secondary outline bg-light"><option value="12" selected="">Elija el servicio</option><option value="13">Diadema Biaural banda ancha con micrófono con ultra-anulación de ruido.</option><option value="14">Diadema Biaural con micrófono con anulación de ruido</option><option value="15">Diadema monoaural con anulación de ruido.</option></select>
+                                <input
+                                    class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Unitario"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Total"></div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                            <div class="form-group"><label class="text-primary pt-2"><strong>Licencia de marcadores:</strong></label><select class="form-control mb-1 text-secondary outline bg-light"><option value="12" selected="">Elija el servicio</option><option value="13">POSICION INBOUND INCLUYE LIC. GRABACION + SOFTPHONE</option><option value="14">POSICION OUTBOUND DIALER INCLUYE LIC. SCRIPTER + GRABACION + SOFTPHONE</option><option value="15">POSICION BLENDED INCLUYE LIC. SCRIPTER + GRABACION + SOFTPHONE</option></select>
+                                <input
+                                    class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Unitario"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Total"></div>
+                        </div>
+                        <div class="col-12 text-secondary pr-2 pl-2 m-0"><small>Los costos de telefonía y minutos se liquidarán de acuerdo al consumo a una tarifa preferencial por volumen. (Tarifa minuto celular y local $30 pesos)</small></div>
+                    </div>
+                    <div class="form-row p-0 m-0" id="adicionalesOm">
+                        <div class="col p-0">
+                            <div class="form-row p-3 m-0" id="adicionalesOm">
+                                <div class="col-12 p-2">
+                                    <h5 class="text-success"><strong>Elementos adicionales:</strong></h5>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 pr-2 pl-2 m-0">
+                                    <div class="form-group p-0 m-0"><select class="form-control text-secondary mb-1 outline bg-light"><option value="12" selected="">Elija el elemento</option><option value="13">MONITOR 21 PULGADAS (Adicional)</option><option value="14">WEBCAM</option><option value="15">HARD PHONE</option><option value="">BASE PORTATIL</option><option value="">SOPORTE MONITOR</option><option value="">DESCANSA PIES</option><option value="">ESPUMA</option></select></div>
+                                    <div
+                                        class="form-group">
+                                        <div class="d-flex flex-column flex-sm-column flex-md-row flex-lg-row flex-xl-row"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 pr-2 pl-2 m-0">
+                                <div class="form-group"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$cantidad"></div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 col-lg-2 col-xl-2 pr-2 pl-2 m-0">
+                                <div class="form-group"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Unitario"></div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 pr-2 pl-2 m-0">
+                                <div class="form-group"><input class="form-control border-0 mb-1" type="number" readonly="" placeholder="$Total"></div>
+                            </div>
+                            <div class="col-md-2 col-lg-1 col-xl-1 pr-2 pl-2 m-0">
+                                <div class="form-group"><button class="btn btn-primary text-white mx-auto d-block" type="button"><i class="fa fa-minus-circle text-white"></i></button></div>
+                            </div>
+                            <div class="col-12 pr-2 pl-2 m-0">
+                                <div class="form-group p-0 m-0 pb-2"><button class="btn btn-secondary text-white mx-auto d-block" type="button"><strong>AGREGAR ADICIONAL&nbsp;</strong><i class="fa fa-plus-circle"></i></button></div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        </form>
+        </section>
+        <div class="row">
+            <div class="col"><button class="btn btn-warning btn-lg text-white mx-auto d-block m-4" type="button"><strong>AGREGAR NUEVO PUESTO&nbsp;</strong><i class="fa fa-plus-circle"></i></button></div>
+        </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row bg-success">
+                <div class="col">
+                    <div class="container">
+                        <div class="row p-0 m-0">
+                            <div class="col-xl-12 p-0 m-0 pt-3 pb-3 bg-success">
+                                <h4 class="text-center text-white p-0 m-0">TOTAL INVERSIÓN<br></h4>
+                                <h1 class="text-center text-white">$280.000.000 COP</h1><small class="text-white d-block text-center"><input type="checkbox">&nbsp;*<a href="https://www.servon.com.co/files/servon.com.co/NbA2quIQDXf1OcEipBh7_35.docx">Aplican condiciones y restricciones</a>, precios no incluyen impuestos, el valor esta en pesos colombianos.</small></div>
+                            <div
+                                class="col-xl-12">
+                                <div class="row text-white" style="font-size: 0.8em;">
+                                    <div class="col-xl-12 bg-info p-3 mb-2">
+                                        <h5 class="text-white p-0 m-0">Resumen de cotización&nbsp;<span>$puesto 1</span></h5>
+                                    </div>
+                                    <div class="col-md-12 col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Periodo de tiempo:</p>
+                                        <h5 class="m-0 p-0">$1 Mes&nbsp;</h5>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Fecha de inicio:</p>
+                                        <h5 class="m-0 p-0">$ 25 de octubre de 2018</h5>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Fecha de cierre:</p>
+                                        <h5 class="m-0 p-0">$ 24 de noviembre de 2018</h5>
+                                    </div>
+                                    <div class="col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Puestos de trabajo:</p>
+                                        <h5 class="m-0 p-0">($2) $Dos puestos tipo TMK Telemercaderista</h5>
+                                    </div>
+                                    <div class="col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Equipo de computo:</p>
+                                        <h5 class="m-0 p-0 mb-3">$CPU CORE I3 2G DE 3.1 GHZ Monitor 17</h5>
+                                        <p class="m-0 p-0">Licencia:</p>
+                                        <h5 class="m-0 p-0">$Office Estandar</h5>
+                                    </div>
+                                    <div class="col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Tipo de diadema:</p>
+                                        <h5 class="m-0 p-0 mb-3">$Diadema monoaural con anulación de ruido</h5>
+                                        <p class="m-0 p-0">Licencia de marcadores:</p>
+                                        <h5 class="m-0 p-0">$Posición blended incluye LIC. Scripter + Grabación + &nbsp;Softphone</h5>
+                                    </div>
+                                    <div class="col-lg-4 col-xl-4 mb-4">
+                                        <p class="m-0 p-0">Elementos adicionales:</p>
+                                        <h5 class="m-0 p-0">($2) $Dos Hard Phone</h5>
+                                    </div>
+                                </div>
+                                <div class="row bg-primary p-2">
+                                    <div class="col-md-7 align-self-center">
+                                        <h2 class="text-center text-white">$280.000.000 COP</h2>
+                                    </div>
+                                    <div class="col"><button class="btn btn-info btn-lg mx-auto d-block w-75" type="button">IR A PAGAR</button></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="row p-3 m-0 mx-auto" id="mediosOm">
+            <div class="col-12 col-lg-7 col-xl-10 mx-auto d-block">
+                <p class="text-center p-0 m-0 text-secondary p-2">Recibimos los siguientes medios de pago:</p>
+            </div>
+            <div class="col-lg-6 col-xl-4 mx-auto d-block">
+                <div class="row">
+                    <div class="col-3 p-0 m-0 mx-auto text-center"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/903/archivo_imagen"></div>
+                    <div class="col-3 p-0 m-0 mx-auto"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/904/archivo_imagen"></div>
+                    <div class="col-3 p-0 m-0 mx-auto"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/37/archivo_imagen"></div>
+                    <div class="col-3 p-0 m-0 mx-auto"><img class="img-fluid mx-auto d-block" src="https://servon.com.co/index/viewArchive/81/archivo_imagen"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    
+    <div class="container-fluid p-0 m-0" id="footerOm">
+        <footer class="page-footer bg-dark p-0 m-0">
+            <div class="row p-0 m-0 p-3 bg-light">
+                <div class="col p-0 m-0">
+                    <p class="p-0 m-0 text-secondary" style="font-weight:300;">Todos los derechos reservados por BRM S.A.</p>
+                    <a href="politicas.html">
+                        <p class="p-0 m-0"><small>Políticas de privacidad</small></p>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="Modales">
+        <div class="modal fade" role="dialog" tabindex="-1" id="modalLogin">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-primary"><i class="fa fa-edit"></i>&nbsp;ZONA DE ACCESO</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12 padMar">
+                                <p class="text-secondary p-0 m-0 p-2">Para acceder a nuestros productos debes estar inscrito en nuestro sitio web.</p>
+                            </div>
+                            <div class="col">
+                                <form method="post" class="p-4">
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Correo electrónico"></div>
+                                    <div class="form-group"><input class="form-control outline" type="password" name="password" placeholder="Contraseña"></div>
+                                    <div class="form-group"><a class="btn btn-primary btn-block" role="button" href="loginHome.html">ENVIAR</a></div>
+                                    <div class="form-check pb-2"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label text-left" for="formCheck-1">Recordarme</label></div><a href="#">¿Olvidaste tu contraseña?</a></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" role="dialog" tabindex="-1" id="modalCrearCuenta">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-primary"><i class="fa fa-edit"></i>&nbsp;CREAR CUENTA</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xl-12 padMar">
+                                <p class="text-secondary p-0 m-0 p-2">Diligencia los datos para la creación de cuenta y acceder a los servicios de Servon.</p>
+                            </div>
+                            <div class="col">
+                                <form method="post" class="p-4">
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Nombres"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Apellidos"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Cédula"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Celular"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Correo electrónico"></div>
+                                    <div class="form-group"><input class="form-control outline" type="email" name="email" placeholder="Crear contraseña"></div>
+                                    <div class="form-group"><input class="form-control outline" type="password" name="password" placeholder="Repetir contraseña"></div>
+                                    <div class="form-group"><a class="btn btn-primary btn-block text-white" role="button" href="loginHome.html">&nbsp;CREAR CUENTA</a></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://omolds.github.io/assets/js/jquery.easing.min.js"></script>
+    <script src="https://omolds.github.io/assets/js/scrolling-nav.js"></script>
+    <script src="https://omolds.github.io/assets/js/functionsOmolds.js"></script>
+    <script src="js/logic.js"></script>
+</body>
+
+</html>
